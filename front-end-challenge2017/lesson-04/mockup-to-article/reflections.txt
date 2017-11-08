@@ -1,9 +1,16 @@
 You've learned a lot about web development so far. I want you to take a moment to write down your thoughts about web development here. Answer the following questions:
-  * What new skills have you learned?
-  * What has been easy?
-  * What has been difficult?
-  * How have you used the problem solving strategies from the first project to overcome challenges so far?
+  
+* What new skills have you learned?
+  
+I've learn how to put a strike through text in HTML and how to create and link a footnote.
 
----
+* What has been easy?
+  
+Creating a basic tree of the document.
 
-Your response goes here!
+* What has been difficult?
+  
+Creating a footnote and styling it to match the mock-up.
+
+* How have you used the problem solving strategies from the first project to overcome challenges so far?
+I used the references from Mozilla developers and also googled it up. I also had a look at the discussion forum.
