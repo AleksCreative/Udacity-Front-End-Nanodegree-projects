@@ -1,0 +1,37 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+I could clearly see the lines that were added and/or removed to/from the version before the commit. 
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+It creates more relaxing environment as I know that whatever changes I make to the code I can always reverse to the previous versions.
+It makes me feel that I can make as many mistakes/bugs as I need to learn from them.
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+pros - it gives me the full control over saving my files
+cons - it may be probalematic if I forgot to commit an important change and my computer broke down or I went away but wanted to work on the most recent project on a different computer and couldn't download the most recent version of the repository because it wasn't commited.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+Git 'watches' the whole directory/depository while other programs only save files currently in use.
+
+How can you use the commands git log and git diff to view the history of files?
+
+I type git log first to see the list of all the commits and then git diff to compare the two commits in question.
+
+How might using version control make you more confident to make changes that
+could break something?
+
+Well, I won't worry too much about breaking things if I know that I can easily revert to the previous version of the file.
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+I will be starting with creating websites so I want to track changes to my html and css files, just in case I make any mistake and bug up my webiste. 
+But who knows what I will need git in the future? I definitelly love it already :)
+
