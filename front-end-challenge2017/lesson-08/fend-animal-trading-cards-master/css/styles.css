@@ -35,6 +35,7 @@ p {
 .animal-info {
   padding: 10px;
   background-color: #d6cb9d;
+  border: 1px solid #31af9e;
   box-shadow: 4px 4px 10px 1px #807547;
   border-radius: 8px;
 }
