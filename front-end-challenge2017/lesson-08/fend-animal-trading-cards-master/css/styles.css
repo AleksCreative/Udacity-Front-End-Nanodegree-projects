@@ -1,0 +1,56 @@
+body {
+  font-family: 'Lato', sans-serif;
+  color: #454545;
+  background-color: #093e45;
+  font-size: 15px;
+}
+
+h3 {
+  font-family: 'Bowlby One', cursive;
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#animal-card {
+  background: #d6cb9d;
+  background: -webkit-linear-gradient(#d6cb9d, #c2b268);
+  background: -o-linear-gradient(#d6cb9d, #c2b268);
+  background: -moz-linear-gradient(#d6cb9d, #c2b268);
+  background: linear-gradient(#d6cb9d, #c2b268);
+  border: 3px solid #31af9e;
+  border-radius: 8px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  box-shadow: 8px 8px 20px 1px #052428;
+}
+.animal-info {
+  padding: 10px;
+  background-color: #d6cb9d;
+  box-shadow: 4px 4px 10px 1px #807547;
+  border-radius: 8px;
+}
+.animal-image {
+  margin: 10px 0;
+}
+.animal-image img {
+  border-radius: 8px;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
