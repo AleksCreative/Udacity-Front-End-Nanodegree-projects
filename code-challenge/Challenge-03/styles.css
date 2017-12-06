@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+p {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+section {
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 10px;
+  color: #fff;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/b/ba/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg);
+  background-size: cover;
+}
+.bio {
+  background:rgba(0,0,0,0.4);
+  width: 40%;
+  text-align: center;
+  padding: 20px;
+}
+
+.rounded-image {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 2px 13px 1px #0d0d0d;
+  -webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
+}
+.rounded-image:hover {
+-webkit-transform:scale(0.9);
+transform:scale(0.9);
+}
+@media screen and (max-width:910px) {
+  section {
+    width: 100%;
+  }
+}
+@media screen and (max-width:800px) {
+  .bio {
+    width: 50%;
+  }
+}
+@media screen and (max-width:540px) {
+  .bio {
+    width: 100%;
+  }
+}
