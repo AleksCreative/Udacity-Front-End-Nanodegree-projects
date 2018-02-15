@@ -1,0 +1,62 @@
+
+/* general styles */
+body {
+  background: url(page-background.jpg);
+  background-size: cover;
+  color: #;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* card body */
+.card-body {
+  background: url(card-background.jpg);
+  background-size: cover;
+  width: 400px;
+  margin: 0 auto;
+  padding: 1px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 1px 0 #1a171c;
+}
+.card-body h3 {
+  font-family: 'Alfa Slab One', cursive;
+  color: #990000;
+  text-shadow: 1px 1px 2px #1a171c;
+  font-size: 32px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.card-image {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 1px 0 #1a171c;
+}
+
+/* card content */
+.card-content {
+  margin: 15px;
+  padding: 10px;
+  padding-bottom: 0;
+}
+.content-fact, .content-list, .content-description {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+}
+.content-fact {
+  font-style: oblique;
+}
+.border {
+  border: 3px dotted #990000;
+}
+.label {
+  font-weight: bold;
+}
