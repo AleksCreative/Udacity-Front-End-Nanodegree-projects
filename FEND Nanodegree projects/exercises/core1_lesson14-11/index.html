@@ -7,7 +7,9 @@
     <title>Brighton Times</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   </head>
   <body>
 
@@ -17,6 +19,12 @@
         <h1 class="header__title">
           The Brighton Times
         </h1>
+        <a id="menu" class="header__menu">
+        <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#bababa" id="svg_1" d="m4,10.050187l24,0c1.104,0 2,-0.896 2,-2s-0.896,-2 -2,-2l-24,0c-1.104,0 -2,0.896 -2,2s0.896,2 2,2zm24,4l-24,0c-1.104,0 -2,0.896 -2,2s0.896,2 2,2l24,0c1.104,0 2,-0.896 2,-2s-0.896,-2 -2,-2zm0,8l-24,0c-1.104,0 -2,0.896 -2,2s0.896,2 2,2l24,0c1.104,0 2,-0.896 2,-2s-0.896,-2 -2,-2z"/></a>
+
+        </a>
+
       </div>
     </header>
 
@@ -26,6 +34,7 @@
         <li class="nav__item"><a href="#">Events</a></li>
         <li class="nav__item"><a href="#">Culture</a></li>
         <li class="nav__item"><a href="#">Blog</a></li>
+        <li id="menu-close" class="nav__item"><a href="#">X Close Menu</a></li>
       </ul>
     </nav>
 
@@ -108,11 +117,13 @@
         </section>
 
         <section class="weather">
+          <div class="weather__details">
           <span class="weather__location">Brighton, UK</span>
           <span class="weather__desc">Sunny</span>
           <span class="weather__today">
           <img class="weather__today__image" src="images/weather.png" alt="icon of a partially sunny day"><span class="weather__today__temp">13</span><span class="weather__today__deg">&deg;C</span>
           </span>
+          </div>
           <ul class="weather__next">
             <li class="weather__next__item">
               <span>Mon</span>
@@ -179,5 +190,6 @@
         </ul>
       </footer>
     </main>
+  <script src="script.js"></script>
   </body>
 </html>
