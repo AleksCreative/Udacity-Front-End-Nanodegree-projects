@@ -14,7 +14,7 @@
 - [ ] Exercise Lesson 14.11 - Brighton Times app
   - [code](https://github.com/AleksCreative/my-udacity/tree/master/FEND%20Nanodegree%20projects/exercises/core1_lesson14-11)
   - [preview](https://alekscreative.github.io/my-udacity/FEND%20Nanodegree%20projects/exercises/core1_lesson14-11/)
-- [ ]**Project 2** - Build Portfolio Site
+- [ ] **Project 2** - Build Portfolio Site
   - [code](https://github.com/AleksCreative/my-udacity/tree/master/FEND%20Nanodegree%20projects/Project02%20-%20Portfolio%20Site)
   - [preview](https://alekscreative.github.io/my-udacity/FEND%20Nanodegree%20projects/Project02%20-%20Portfolio%20Site/index.html)
 ###### Web Programming with JavaScript  
