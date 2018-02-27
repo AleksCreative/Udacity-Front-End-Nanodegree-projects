@@ -1,9 +1,11 @@
 /* --- General --- */
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -15,29 +17,50 @@ h1, h2, h3, h4, h5, h5 {
   font-family: "Comfortaa", cursive;
 }
 
+h2 {
+  color: #6b6a6b;
+}
+
+header, main, footer {
+  width: 100%;
+}
+
+a {
+  color: #92278f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover, a:active, a:visited {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
 /* --- Header --- */
 
 #header__main {
-  padding: 10px;
+  padding-top: 10px;
   padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-#header__main h1, #header__main h3 {
+.header__headings_container {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
 }
 
-#header__main h1 {
+.header__headings_container h1 {
   font-size: 1.8em;
   margin-top: 10px;
   margin-bottom: 0;
-
 }
 
-#header__main h3 {
+.header__headings_container h3 {
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 0;
@@ -57,39 +80,76 @@ h1, h2, h3, h4, h5, h5 {
 
 @media screen and (min-width: 400px) {
   .header__logo {
-    width: 45%;
-    padding: 0;
+    padding: 0 60px;
   }
-  #header__main h1{
-    width: 55%;
-    padding-left: 10px;
-    font-size: 2.4em;
-    text-align: left;
 
+  .header__headings_container h1 {
+    font-size: 2.3em;
   }
-  #header__main h3{
-    width: 100%;
-    font-size: 1.3em;
-    padding-top: 10px;
+
+  .header__headings_container h3 {
+    font-size: 1.1em;
   }
 }
+
 @media screen and (min-width: 440px) {
   .header__logo {
     padding: 0 20px;
   }
 }
-@media screen and (min-width: 610px){
+
+@media screen and (min-width: 560px) {
+  .header__logo {
+    width: 37%;
+    padding: 0;
+  }
+
+  .header__headings_container {
+  width: 63%;
+  padding-top: 15px;
+  }
+
+  .header__headings_container h1 {
+    font-size: 2.4em;
+    line-height: 1em;
+    padding-left: 10px;
+    padding-top: 10px;
+    text-align: right;
+
+  }
+  .header__headings_container h3 {
+    width: 100%;
+    font-size: 1.2em;
+    line-height: 1em;
+    padding-top: 10px;
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 700px){
   .header__logo {
     width: 30%;
+    height: 120px;
   }
-  #header__main h1, #header__main h3 {
 
-    text-align: right;
-    padding-right: 15px;
+  .header__headings_container {
+  width: 70%;
+  padding-top: 10px;
   }
-  #header__main h1{
-    width: 70%;
-    font-size: 2.8em;
+
+  .header__headings_container h1 {
+    font-size: 3em;
+  }
+
+  .header__headings_container h3 {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  header, main, footer {
+    width: 900px;
+    margin: 0 auto;
   }
 }
 
@@ -100,8 +160,32 @@ hr {
 
 /* --- Main --- */
 
-#container__main {
+.container {
+  text-align: center;
   width: 100%;
-  padding: 10px;
-  padding-top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portfolio__item h2 {
+  text-transform: uppercase;
+  margin: 5px;
+}
+.portfolio__item {
+  margin: 5px;
+}
+
+@media screen and (min-width: 460px) {
+  .portfolio__item {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .portfolio__item {
+    width: 33.33%;
+  }
 }
