@@ -1,5 +1,3 @@
-/* --- General --- */
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -11,6 +9,7 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   color: #414042;
+  background-color: #d9d3df;
 }
 
 h1, h2, h3, h4, h5, h5 {
@@ -23,6 +22,22 @@ h2 {
 
 header, main, footer {
   width: 100%;
+  padding: 0 10px;
+}
+
+header, main {
+  background-color: #fff;
+}
+
+footer {
+  background-color: #92278f;
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+footer p {
+  margin: 0;
+  padding-top: 10px;
 }
 
 a {
@@ -36,7 +51,9 @@ a:hover, a:active, a:visited {
   text-decoration: underline;
 }
 
-/* --- Header --- */
+.clearings {
+  clear: both;
+}
 
 #header__main {
   padding-top: 10px;
@@ -146,46 +163,65 @@ a:hover, a:active, a:visited {
   }
 }
 
-@media screen and (min-width: 900px) {
-  header, main, footer {
-    width: 900px;
-    margin: 0 auto;
-  }
-}
-
 hr {
   color: #c296c5;
   width: 100%;
 }
 
-/* --- Main --- */
-
 .container {
   text-align: center;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .portfolio__item h2 {
   text-transform: uppercase;
-  margin: 5px;
+  margin: 5px 0;
 }
 .portfolio__item {
-  margin: 5px;
+  float: left;
+  margin-bottom: 15px;
+  max-width: 100%;
+}
+.portfolio__item img {
+  border: 0 hidden #fff;
+  border-radius: 8px;
 }
 
-@media screen and (min-width: 460px) {
+.portfolio__item img:hover {
+  opacity: 0.9;
+  -webkit-transition: all 1s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+#footer__main p{
+  text-align: right;
+}
+
+@media screen and (min-width: 400px) and (max-width: 700px) {
   .portfolio__item {
-    width: 50%;
+    margin-right: 10px;
+    width: calc((100% - 10px)/2);
+  }
+  .portfolio__item:nth-of-type(even) {
+    margin-right: 0;
   }
 }
 
 @media screen and (min-width: 700px) {
   .portfolio__item {
-    width: 33.33%;
+    margin-right: 10px;
+    width: calc((100% - 20px)/3);
+  }
+  .portfolio__item:nth-of-type(3n+0) {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 900px) {
+  header, main, footer {
+    width: 900px;
+    margin: 0 auto;
   }
 }
