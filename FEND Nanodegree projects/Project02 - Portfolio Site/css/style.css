@@ -1,3 +1,5 @@
+/* --- General --- */
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -54,6 +56,8 @@ a:hover, a:active, a:visited {
 .clearings {
   clear: both;
 }
+
+/* --- Header --- */
 
 #header__main {
   padding-top: 10px;
@@ -164,12 +168,7 @@ a:hover, a:active, a:visited {
 }
 
 hr {
-  color: #c296c5;
-  width: 100%;
-}
-
-.container {
-  text-align: center;
+  border: 1px solid #c296c5;
   width: 100%;
 }
 
@@ -177,11 +176,14 @@ hr {
   text-transform: uppercase;
   margin: 5px 0;
 }
+
 .portfolio__item {
+  text-align: center;
   float: left;
   margin-bottom: 15px;
   max-width: 100%;
 }
+
 .portfolio__item img {
   border: 0 hidden #fff;
   border-radius: 8px;
@@ -219,6 +221,7 @@ hr {
     margin-right: 0;
   }
 }
+
 @media screen and (min-width: 900px) {
   header, main, footer {
     width: 900px;
