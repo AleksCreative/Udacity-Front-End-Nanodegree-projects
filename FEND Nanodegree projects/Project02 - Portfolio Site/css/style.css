@@ -172,6 +172,16 @@ hr {
   width: 100%;
 }
 
+/* --- Hero --- */
+
+.hero__image {
+  background-image: url("../img/hero.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+/* --- Portfolio --- */
+
 .portfolio__item h2 {
   text-transform: uppercase;
   margin: 5px 0;
@@ -197,6 +207,8 @@ hr {
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
 }
+
+/* --- Footer --- */
 
 #footer__main p{
   text-align: right;
