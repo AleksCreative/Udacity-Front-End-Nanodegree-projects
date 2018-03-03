@@ -14,7 +14,12 @@ body {
   background-color: #d9d3df;
 }
 
-h1, h2, h3, h4, h5, h5 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h5 {
   font-family: "Comfortaa", cursive;
 }
 
@@ -22,12 +27,15 @@ h2 {
   color: #6b6a6b;
 }
 
-header, main, footer {
+header,
+main,
+footer {
   width: 100%;
   padding: 0 10px;
 }
 
-header, main {
+header,
+main {
   background-color: #fff;
 }
 
@@ -48,13 +56,20 @@ a {
   font-weight: bold;
 }
 
-a:hover, a:active, a:visited {
+a:hover,
+a:active,
+a:visited {
   opacity: 0.8;
   text-decoration: underline;
 }
 
-.clearings {
-  clear: both;
+@media screen and (min-width: 900px) {
+  header,
+  main,
+  footer {
+    width: 900px;
+    margin: 0 auto;
+  }
 }
 
 /* --- Header --- */
@@ -172,6 +187,8 @@ hr {
   width: 100%;
 }
 
+/* --- Main ---*/
+
 /* --- Hero --- */
 
 .hero__image {
@@ -182,6 +199,12 @@ hr {
 
 /* --- Portfolio --- */
 
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .portfolio__item h2 {
   text-transform: uppercase;
   margin: 5px 0;
@@ -189,9 +212,9 @@ hr {
 
 .portfolio__item {
   text-align: center;
-  float: left;
-  margin-bottom: 15px;
+  width: 100%;
   max-width: 100%;
+  margin-bottom: 15px;
 }
 
 .portfolio__item img {
@@ -208,35 +231,20 @@ hr {
           transform: scale(1.03);
 }
 
-/* --- Footer --- */
-
-#footer__main p{
-  text-align: right;
-}
-
 @media screen and (min-width: 400px) and (max-width: 700px) {
   .portfolio__item {
-    margin-right: 10px;
-    width: calc((100% - 10px)/2);
-  }
-  .portfolio__item:nth-of-type(even) {
-    margin-right: 0;
+    width: 49%;
   }
 }
 
 @media screen and (min-width: 700px) {
   .portfolio__item {
-    margin-right: 10px;
-    width: calc((100% - 20px)/3);
-  }
-  .portfolio__item:nth-of-type(3n+0) {
-    margin-right: 0;
+    width: 32.5%;
   }
 }
 
-@media screen and (min-width: 900px) {
-  header, main, footer {
-    width: 900px;
-    margin: 0 auto;
-  }
+/* --- Footer --- */
+
+#footer__main p{
+  text-align: right;
 }
