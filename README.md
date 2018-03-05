@@ -4,17 +4,17 @@
 
 ###### Web Foundations
 - [x] **Project 1** - Animal Trading Card
-  - [code](https://github.com/AleksCreative/my-udacity/tree/master/FEND%20Nanodegree%20projects/Project%2001%20-%20Animal%20Trading%20Card)
-  - [preview](https://alekscreative.github.io/my-udacity/FEND%20Nanodegree%20projects/Project%2001%20-%20Animal%20Trading%20Card/card.html)
+  - [code](https://github.com/AleksCreative/my-udacity/tree/master/02_FEND_Nanodegree-2018/Project%2001%20-%20Animal%20Trading%20Card)
+  - [preview](https://alekscreative.github.io/my-udacity/02_FEND_Nanodegree-2018/Project%2001%20-%20Animal%20Trading%20Card/card.html)
 - [x] Exercise lesson 14.6 - pattern mostly fluid
-  - [code](https://github.com/AleksCreative/my-udacity/tree/master/FEND%20Nanodegree%20projects/exercises/core1_lesson14-6)
-  - [preview](https://alekscreative.github.io/my-udacity/FEND%20Nanodegree%20projects/exercises/core1_lesson14-6/pattern-mostly-fluid-quiz-blankcss.html)
-- [ ] Exercise Lesson 14.11 - Brighton Times app
-  - [code](https://github.com/AleksCreative/my-udacity/tree/master/FEND%20Nanodegree%20projects/exercises/core1_lesson14-11)
-  - [preview](https://alekscreative.github.io/my-udacity/FEND%20Nanodegree%20projects/exercises/core1_lesson14-11/)
+  - [code](https://github.com/AleksCreative/my-udacity/tree/master/02_FEND_Nanodegree-2018/exercises/core1_lesson14-6)
+  - [preview](https://alekscreative.github.io/my-udacity/02_FEND_Nanodegree-2018/exercises/core1_lesson14-6/pattern-mostly-fluid-quiz-blankcss.html)
+- [x] Exercise Lesson 14.11 - Brighton Times app
+  - [code](https://github.com/AleksCreative/my-udacity/tree/master/02_FEND_Nanodegree-2018/exercises/core1_lesson14-11)
+  - [preview](https://alekscreative.github.io/my-udacity/02_FEND_Nanodegree-2018/exercises/core1_lesson14-11/)
 - [x] **Project 2** - Build Portfolio Site
-  - [code](https://github.com/AleksCreative/my-udacity/tree/master/FEND%20Nanodegree%20projects/Project02%20-%20Portfolio%20Site)
-  - [preview](https://alekscreative.github.io/my-udacity/FEND%20Nanodegree%20projects/Project02%20-%20Portfolio%20Site/index.html)
+  - [code](https://github.com/AleksCreative/my-udacity/tree/master/02_FEND_Nanodegree-2018/Project02%20-%20Portfolio%20Site)
+  - [preview](https://alekscreative.github.io/my-udacity/02_FEND_Nanodegree-2018/Project02%20-%20Portfolio%20Site/index.html)
 ###### Web Programming with JavaScript  
 - [ ] **Project 3** - Memory Game
   - code
