@@ -1,7 +1,33 @@
-/* Aleks' Memory Game. Udacity FEND Project 3  */
+/* ---------- ALEKS' MEMORY GAME. Udacity FEND Project 3 ---------- */
+
+/* ---------------------------------------------------------------- */
 
 /* List that holds all of the card classes */
+
 let cardArray = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb' ];
+
+/* ----------------------- Cards Shuffle ------------------------ */
+
+/* Fisher-Yates Shuffle function from
+* https://www.frankmitchell.org/2015/01/fisher-yates/
+*/
+function shuffle(array) {
+    var i = 0,
+        j = 0,
+        temp = null;
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1))
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+     }
+      return array;
+}
+
+/* Shuffle the cards and store them in an array */
+
+let shuffledClasses = shuffle(cardArray);
 
 /*
  * set up the event listener for a card. If a card is clicked:
