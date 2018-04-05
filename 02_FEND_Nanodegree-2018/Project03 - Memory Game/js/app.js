@@ -2,32 +2,59 @@
 
 /* ---------------------------------------------------------------- */
 
-/* List that holds all of the card classes */
+/* Array that holds all of the card classes */
 
-let cardArray = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb' ];
+let cardArray = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb', 'fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb' ];
 
 /* ----------------------- Cards Shuffle ------------------------ */
 
-/* Fisher-Yates Shuffle function from
-* https://www.frankmitchell.org/2015/01/fisher-yates/
-*/
-function shuffle(array) {
-    var i = 0,
-        j = 0,
-        temp = null;
+// Shuffle function from http://stackoverflow.com/a/2450976
 
-    for (i = array.length - 1; i > 0; i -= 1) {
-      j = Math.floor(Math.random() * (i + 1))
-      temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
-     }
-      return array;
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
 }
 
-/* Shuffle the cards and store them in an array */
+/* ------------- Creating a list of cards with icons --------------- */
 
-let shuffledClasses = shuffle(cardArray);
+/* Select the ul .deck element */
+
+const cardDeck = document.querySelector('.deck');
+
+/* Declare empty list items and icon variables */
+
+let listItem = ' ';
+let cardItem = ' ';
+
+/* Function that creates a list items and icons of a length of the cardArray and assign them classes */
+
+function makeList() {
+  for(let i = 0; i < cardArray.length; i++) {
+    listItem = document.createElement('li');
+    listItem.className = 'card';
+    cardDeck.appendChild(listItem);
+
+    cardItem = document.createElement('i');
+    cardItem.className = 'fa';
+    listItem.appendChild(cardItem);
+  }
+  let shuffledClasses = shuffle(cardArray);
+  let cardItems = document.querySelectorAll('.card .fa');
+  for (let j = 0; j < cardArray.length; j++) {
+  cardItems[j].classList.add(shuffledClasses[j]);
+  }
+}
+makeList();
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
