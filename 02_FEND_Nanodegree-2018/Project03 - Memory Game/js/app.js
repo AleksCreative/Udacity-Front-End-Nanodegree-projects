@@ -59,7 +59,7 @@ function makeList() {
 let cardsOpen = [ ];
 let cardsMatched = [ ];
 
-/* Function that opens and shows a card on click and adds it to the array of opened cards */
+/* --- Function that opens and shows a card on click --- */
 
 function openCard() {
   cardDeck.addEventListener('click', function(event) {
@@ -84,9 +84,10 @@ function matchCard() {
 
 
 
+
 /* --------------- Start the Game ---------------- */
 
-const startButton = getElementById('start');
+const startButton = document.getElementById('start');
 
 startButton.addEventListener('click', startGame);
 
@@ -94,6 +95,7 @@ function startGame(){
 makeList(); // puts shuffled cards on the table
 // starts the timer
 // counts the moves
+// prevents creating multiple card decks
 }
 
 
