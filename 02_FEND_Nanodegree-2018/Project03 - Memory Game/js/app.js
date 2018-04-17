@@ -53,39 +53,34 @@ function makeList() {
   cardItems[j].classList.add(shuffledClasses[j]);
   }
 }
-makeList();
 
-/* Function that opens cards on click */
+/* ----- Arrays that hold Open and Matched cards ------- */
+
+let cardsOpen = [ ];
+let cardsMatched = [ ];
+
+/* Function that opens and shows a card on click and adds it to the array of opened cards */
 
 function openCard() {
   cardDeck.addEventListener('click', function(event) {
-    if (event.target.classList.value === "card") {
-      event.target.className += " open show";
+    if (event.target.classList.value === 'card') {
+      event.target.className += ' open show';
+    } else if (event.target.classList.value === 'card open show') {
+      return;
     }
   });
 }
 
-function matchCard() {
-  cardDeck.addEventListener('click', function(event) {
-    if (event.target.classList.value === "card") {
-      event.target.className += " open match";
-    }
-  });
-}
-
-let card1 = openCard();
-
-/* ----- Adding classes to the cards on click---- */
+/* ----- Adding classes to the matched cards ---- */
 
 let card = cardDeck.children;
-
-function openCard() {
-  card.className += " open show";
-}
 
 function matchCard() {
   card.className += " open match";
 }
+
+
+
 
 
 
