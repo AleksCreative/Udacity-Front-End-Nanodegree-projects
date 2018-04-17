@@ -86,6 +86,10 @@ function matchCard() {
 
 /* --------------- Start the Game ---------------- */
 
+const startButton = getElementById('start');
+
+startButton.addEventListener('click', startGame);
+
 function startGame(){
 makeList(); // puts shuffled cards on the table
 // starts the timer
