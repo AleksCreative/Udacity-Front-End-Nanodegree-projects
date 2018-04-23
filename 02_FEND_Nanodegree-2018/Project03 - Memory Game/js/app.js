@@ -54,35 +54,74 @@ function makeList() {
   }
 }
 
-/* ----- Arrays that hold Open and Matched cards ------- */
+/* ----- Declaring variables for the game functions ------- */
 
 let cardsOpen = [ ];
-let cardsMatched = [ ];
+let clicks = 0;
+let cardsMatched = 0;
+let card = cardDeck.children;
+let icon = card.firstChild;
 
-/* --- Function that opens and shows a card on click --- */
+/* ---- Adding classes to show the cards ---- */
 
 function openCard() {
-  cardDeck.addEventListener('click', function(event) {
-    if (event.target.classList.value === 'card') {
-      event.target.className += ' open show';
-    } else if (event.target.classList.value === 'card open show') {
-      return;
-    }
-  });
+  card.className += ' open show';
+  cardsOpen.push(card);
 }
 
-/* ----- Adding classes to the matched cards ---- */
-
-let card = cardDeck.children;
+/* ---- Adding classes to the matched cards ---- */
 
 function matchCard() {
-  card.className += " open match";
+  card.className += ' open match';
+}
+
+/* ---- Event listener for clicking the cards ---- */
+
+cardDeck.addEventListener('click', game);
+
+/* ---- Main game functions ---- */
+
+function game(event) {
+
+ card = event.target; //sets up card as the target of the click event
+
+ if (card.classList.value === 'card open show'){
+   return; // disable clicking the same card twice
+ } else if (card.classList.value === 'card') {
+      openCard(); // shows the card
+    }
+ }
+
+
+/*
+      let cardsOpened = [];
+      cardsOpened.push(cardOpened);
+
+      if (cardsOpened.length > 2) {
+        cardOpened.className = 'card';
+
+      } else if (cardOpened[0] === cardOpened[1]) {
+        cardOpened.className = 'card open match';
+
+      }
+    }
+
+  } );
 }
 
 
+/* ------------ Star ranking function ------- */
 
 
-
+function showStars() {
+if(clicks <= 20) {
+  //show 3 stars
+} else if (clicks > 20 && clicks < 28) {
+    //show 2 stars
+  } else {
+    // show 1 star
+  }
+}
 
 
 /* --------------- Start the Game ---------------- */
@@ -90,22 +129,17 @@ function matchCard() {
 const startButton = document.getElementById('start');
 
 startButton.addEventListener('click', startGame);
+ // prevents creating multiple card decks
 
 function startGame(){
 makeList(); // puts shuffled cards on the table
+game(); // responds to card clicks (game play)
 // starts the timer
 // counts the moves
-// prevents creating multiple card decks
+
 }
 
-
-
-
-
-
 /*
- * set up the event listener for a card.
-
 
  If a card is clicked:
 
