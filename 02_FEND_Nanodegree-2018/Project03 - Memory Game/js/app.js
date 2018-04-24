@@ -60,13 +60,17 @@ let cardsOpen = [ ];
 let clicks = 0;
 let cardsMatched = 0;
 let card = cardDeck.children;
-let icon = card.firstChild;
 
 /* ---- Adding classes to show the cards ---- */
 
 function openCard() {
   card.className += ' open show';
-  cardsOpen.push(card);
+}
+
+/* ---- Adding opened cards to the array ---- */
+
+function addCardsToTempArray() {
+  cardsOpen.push(card.firstElementChild.className);
 }
 
 /* ---- Adding classes to the matched cards ---- */
@@ -75,39 +79,35 @@ function matchCard() {
   card.className += ' open match';
 }
 
-/* ---- Event listener for clicking the cards ---- */
+/* ---- Removing classes from cards ---- */
 
-cardDeck.addEventListener('click', game);
+function removeClass() {
+  card.className = 'card';
+}
 
 /* ---- Main game functions ---- */
 
-function game(event) {
+function game() {
 
- card = event.target; //sets up card as the target of the click event
+  cardDeck.addEventListener('click', function(e){
 
- if (card.classList.value === 'card open show'){
-   return; // disable clicking the same card twice
- } else if (card.classList.value === 'card') {
-      openCard(); // shows the card
-    }
- }
+    card = e.target;
 
+    if (card.className === 'card open show'){
+    return; // disable clicking the same card twice
 
-/*
-      let cardsOpened = [];
-      cardsOpened.push(cardOpened);
-
-      if (cardsOpened.length > 2) {
-        cardOpened.className = 'card';
-
-      } else if (cardOpened[0] === cardOpened[1]) {
-        cardOpened.className = 'card open match';
-
+    } else if (card.className === 'card') {
+      addCardsToTempArray(); // adds cards to open cards array
+      if (cardsOpen.length <= 2) {
+        openCard(); // shows the card
+      } else {
+        cardDeck.removeEventListener('click', function(){
+          }
+        );
       }
     }
-
-  } );
-}
+    });
+ }
 
 
 /* ------------ Star ranking function ------- */
@@ -138,6 +138,7 @@ game(); // responds to card clicks (game play)
 // counts the moves
 
 }
+
 
 /*
 
