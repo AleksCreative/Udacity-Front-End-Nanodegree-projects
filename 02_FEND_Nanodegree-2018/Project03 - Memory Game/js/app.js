@@ -57,6 +57,8 @@ function makeList() {
 /* ----- Declaring variables for the game functions ------- */
 
 let cardsOpen = [ ];
+let firstCard = cardsOpen[0];
+let secondCard = cardsOpen[1];
 let clicks = 0;
 let cardsMatched = 0;
 let card = cardDeck.children;
@@ -85,6 +87,16 @@ function removeClass() {
   card.className = 'card';
 }
 
+/* ---- Checking if the two cards match ---- */
+
+function checkMatch() {
+  if (firstCard === secondCard) {
+    matchCard();
+  } else {
+    removeClass();
+  }
+}
+
 /* ---- Main game functions ---- */
 
 function game() {
@@ -97,14 +109,13 @@ function game() {
     return; // disable clicking the same card twice
 
     } else if (card.className === 'card') {
+      openCard(); // shows the card
       addCardsToTempArray(); // adds cards to open cards array
-      if (cardsOpen.length <= 2) {
-        openCard(); // shows the card
-      } else {
-        cardDeck.removeEventListener('click', function(){
-          }
-        );
+      if (cardsOpen.length === 2) {
+        checkMatch();
+
       }
+
     }
     });
  }
@@ -138,6 +149,7 @@ game(); // responds to card clicks (game play)
 // counts the moves
 
 }
+
 
 
 /*
