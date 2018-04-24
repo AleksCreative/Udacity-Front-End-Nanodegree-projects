@@ -73,6 +73,7 @@ function addCardsToTempArray() {
   cardsOpen.push(card.firstElementChild.className);
 }
 
+
 /* ---- Adding classes to the matched cards ---- */
 
 function matchCard() {
@@ -83,6 +84,16 @@ function matchCard() {
 
 function removeClass() {
   card.className = 'card';
+}
+
+/* ---- Check if the two cards match ---- */
+
+function checkMatch() {
+  let firstCard = cardsOpen[0];
+  let secondCard = cardsOpen[1];
+  if (firstCard === secondCard) {
+    matchCard();
+  }
 }
 
 /* ---- Main game functions ---- */
@@ -100,6 +111,8 @@ function game() {
       addCardsToTempArray(); // adds cards to open cards array
       if (cardsOpen.length <= 2) {
         openCard(); // shows the card
+        checkMatch();
+
       } else {
         cardDeck.removeEventListener('click', function(){
           }
