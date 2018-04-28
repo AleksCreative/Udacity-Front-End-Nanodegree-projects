@@ -65,6 +65,7 @@ function removeCards () {
 /* ----- Declaring variables for the game functions ------- */
 
 let cardsOpen = [ ];
+let cardNumber = 0;
 let moves = 0;
 let cardsMatched = 0;
 let card = cardDeck.children;
@@ -78,7 +79,7 @@ function openCard() {
 /* ---- Adding opened cards to the array ---- */
 
 function addCardsToTempArray() {
-  cardsOpen.push(card.firstElementChild.className);
+  cardsOpen.push(card);
 }
 
 function removeCardsFromTempArray() {
@@ -97,7 +98,7 @@ function removeClass() {
   card.className = 'card';
 }
 
-/* ---- Adding classes when carts don't match ---- */
+/* ---- Adding classes when cards don't match ---- */
 
 function dismatchCard() {
   card.className = 'open dismatch';
@@ -108,11 +109,11 @@ function dismatchCard() {
 function checkMatch() {
   let firstCard = cardsOpen[0];
   let secondCard = cardsOpen[1];
-  if (firstCard === secondCard) {
+  let firstIcon = firstCard.firstElementChild;
+  let secondIcon = secondCard.firstElementChild;
+  if (firstIcon === secondIcon) {
     matchCard();
-  } else if (firstCard !== secondCard) {
-    dismatchCard();
-    removeClass();
+    cardsMatched++;
   }
 }
 
@@ -124,19 +125,23 @@ function game() {
     card = e.target;
 
     if (card.className === 'card open show'){
-    return; // disable clicking the same card twice
+      return; // disable clicking the same card twice
 
-    } else if (card.className === 'card') {
-      openCard(); // shows the card
+    } else if (card.className === 'card' && cardNumber < 2) {
+
       addCardsToTempArray(); // adds cards to open cards array
-      if (cardsOpen.length === 2) {
-        checkMatch();
-      } else if (cardsOpen.length > 2) {
+      openCard(); // shows the card
+      cardNumber++;
+      checkMatch();
+      moves++;
+
+      if (cardNumber === 2) {
         removeCardsFromTempArray();
-      }
+        removeClass();
     }
-    });
- }
+  }
+ });
+}
 
 
 /* ------------ Star ranking function ------- */
@@ -160,24 +165,26 @@ document.addEventListener('DOMContentLoaded', startGame, false);
 function startGame(){
   makeList(); // puts shuffled cards on the table
   game(); // responds to card clicks (game play)
-
-
-// starts the timer
-// counts the moves
-
 }
 
 /* --------- Restart Game --------- */
+
 function restartGame() {
+
   let resetGame = document.querySelector('.restart');
+
   resetGame.addEventListener('click', function(){
     removeCards();
     startGame();
   });
+
 }
+
 restartGame();
 
 /*
+
+.firstElementChild.className
 
  If a card is clicked:
 
