@@ -81,6 +81,9 @@ function addCardsToTempArray() {
   cardsOpen.push(card.firstElementChild.className);
 }
 
+function removeCardsFromTempArray() {
+  cardsOpen = [ ];
+}
 
 /* ---- Adding classes to the matched cards ---- */
 
@@ -107,13 +110,15 @@ function checkMatch() {
   let secondCard = cardsOpen[1];
   if (firstCard === secondCard) {
     matchCard();
+  } else if (firstCard !== secondCard) {
+    dismatchCard();
+    removeClass();
   }
 }
 
 /* ---- Main game functions ---- */
 
 function game() {
-
   cardDeck.addEventListener('click', function(e){
 
     card = e.target;
@@ -122,15 +127,12 @@ function game() {
     return; // disable clicking the same card twice
 
     } else if (card.className === 'card') {
+      openCard(); // shows the card
       addCardsToTempArray(); // adds cards to open cards array
-      if (cardsOpen.length <= 2) {
-        openCard(); // shows the card
+      if (cardsOpen.length === 2) {
         checkMatch();
-
-      } else {
-        cardDeck.removeEventListener('click', function(){
-          }
-        );
+      } else if (cardsOpen.length > 2) {
+        removeCardsFromTempArray();
       }
     }
     });
@@ -153,14 +155,13 @@ if(moves <= 20) {
 
 /* --------------- Start the Game ---------------- */
 
-const startButton = document.getElementById('start');
-
-startButton.addEventListener('click', startGame);
- // prevents creating multiple card decks
+document.addEventListener('DOMContentLoaded', startGame, false);
 
 function startGame(){
-makeList(); // puts shuffled cards on the table
-game(); // responds to card clicks (game play)
+  makeList(); // puts shuffled cards on the table
+  game(); // responds to card clicks (game play)
+
+
 // starts the timer
 // counts the moves
 
