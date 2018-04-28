@@ -94,6 +94,12 @@ function removeClass() {
   card.className = 'card';
 }
 
+/* ---- Adding classes when carts don't match ---- */
+
+function dismatchCard() {
+  card.className = 'open dismatch';
+}
+
 /* ---- Check if the two cards match ---- */
 
 function checkMatch() {
