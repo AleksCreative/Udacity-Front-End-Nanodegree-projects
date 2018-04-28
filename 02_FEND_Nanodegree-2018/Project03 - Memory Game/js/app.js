@@ -54,10 +54,18 @@ function makeList() {
   }
 }
 
+/* Function that clears out the card deck */
+
+function removeCards () {
+  while(cardDeck.hasChildNodes()) {
+    cardDeck.removeChild(cardDeck.lastChild);
+  }
+}
+
 /* ----- Declaring variables for the game functions ------- */
 
 let cardsOpen = [ ];
-let clicks = 0;
+let moves = 0;
 let cardsMatched = 0;
 let card = cardDeck.children;
 
@@ -127,9 +135,9 @@ function game() {
 
 
 function showStars() {
-if(clicks <= 20) {
+if(moves <= 20) {
   //show 3 stars
-} else if (clicks > 20 && clicks < 28) {
+} else if (moves > 20 && moves < 28) {
     //show 2 stars
   } else {
     // show 1 star
