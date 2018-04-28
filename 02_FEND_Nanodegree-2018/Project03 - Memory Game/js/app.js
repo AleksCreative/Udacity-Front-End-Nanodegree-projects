@@ -168,12 +168,14 @@ function startGame(){
 }
 
 /* --------- Restart Game --------- */
-
-let resetGame = document.querySelector('.restart');
-resetGame.addEventListener('click', function(){
-  removeCards();
-  startGame();
-});
+function restartGame() {
+  let resetGame = document.querySelector('.restart');
+  resetGame.addEventListener('click', function(){
+    removeCards();
+    startGame();
+  });
+}
+restartGame();
 
 /*
 
