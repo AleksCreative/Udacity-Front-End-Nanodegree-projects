@@ -80,32 +80,32 @@ function openCard() {
 
 /* ---- Adding opened cards to the array ---- */
 
-function addCardsToTempArray(card) {
+function addCardsToTempArray() {
   cardsOpen.push(card);
   cardNumber++;
 }
 
+/* ---- Removing opened cards to the array ---- */
+
+function removeCardsFromTempArray() {
+  cardsOpen = [ ];
+  cardNumber = 0;
+}
 
 /* ---- Adding classes to the matched cards ---- */
 
 function matchCard() {
-  cardsOpen[0].className += ' open match';
-  cardsOpen[1].className += ' open match';
+  cardsOpen[0].className += ' match';
+  cardsOpen[1].className += ' match';
 }
 
 /* ---- Removing classes from cards ---- */
 
 function removeClass() {
-  cardsOpen[0].className = 'card';
-  cardsOpen[1].className = 'card';
-}
-
-/* ---- Removing cards from temporary array and turning cards over ---- */
-
-function removeCardsFromTempArray() {
-  removeClass();
-  cardsOpen = [ ];
-  cardNumber--;
+  setTimeout(function() {
+    cardsOpen[0].className = 'card';
+    cardsOpen[1].className = 'card';
+  }, 800);
 }
 
 /* ---- Adding classes when cards don't match ---- */
@@ -115,6 +115,7 @@ function dismatchCard() {
     cardsOpen[0].className += ' dismatch';
     cardsOpen[1].className += ' dismatch';
   }, 500);
+  removeClass();
 }
 
 /* ---- Check if the two cards match ---- */
@@ -126,7 +127,7 @@ function checkMatch() {
   if (firstCard === secondCard) {
     matchCard();
     cardsMatched++;
-
+    removeCardsFromTempArray();
   } else {
     dismatchCard();
   }
@@ -144,36 +145,36 @@ function game() {
 
     } else if (card.className === 'card' && cardNumber < 2) {
       openCard(); // shows the card
-      addCardsToTempArray(card); // adds cards to open cards array
+      addCardsToTempArray(); // adds cards to open cards array
       if (cardNumber === 2) {
         checkMatch();
         moves++;
-
-      }
-  }
-
+        }
+      } else {
+        removeCardsFromTempArray();
+    }
  });
 }
 
-
-/*
-checkMatch();
-moves++;
-removeCardsFromTempArray();
-removeClass();
-*/
 
 /* ------------ Star ranking function ------- */
 
 
 function showStars() {
-if(moves <= 20) {
+if(moves <= 10) {
   //show 3 stars
-} else if (moves > 20 && moves < 28) {
+} else if (moves > 10 && moves < 20) {
     //show 2 stars
   } else {
     // show 1 star
   }
+}
+
+/* ----------- Modal pop-up -------------- */
+
+if (cardsMatched === 8) {
+  let modal = getElementById('modal');
+  //toggles css display: block etc...
 }
 
 
