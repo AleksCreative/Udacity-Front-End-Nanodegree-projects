@@ -65,7 +65,9 @@ function removeCards () {
 /* ----- Declaring variables for the game functions ------- */
 
 let cardsOpen = [ ];
+
 let cardNumber = 0;
+
 let moves = 0;
 let cardsMatched = 0;
 let card = cardDeck.children;
@@ -78,42 +80,55 @@ function openCard() {
 
 /* ---- Adding opened cards to the array ---- */
 
-function addCardsToTempArray() {
+function addCardsToTempArray(card) {
   cardsOpen.push(card);
+  cardNumber++;
 }
 
-function removeCardsFromTempArray() {
-  cardsOpen = [ ];
-}
 
 /* ---- Adding classes to the matched cards ---- */
 
 function matchCard() {
-  card.className += ' open match';
+  cardsOpen[0].className += ' open match';
+  cardsOpen[1].className += ' open match';
 }
 
 /* ---- Removing classes from cards ---- */
 
 function removeClass() {
-  card.className = 'card';
+  cardsOpen[0].className = 'card';
+  cardsOpen[1].className = 'card';
+}
+
+/* ---- Removing cards from temporary array and turning cards over ---- */
+
+function removeCardsFromTempArray() {
+  removeClass();
+  cardsOpen = [ ];
+  cardNumber--;
 }
 
 /* ---- Adding classes when cards don't match ---- */
 
 function dismatchCard() {
-  card.className = 'open dismatch';
+  setTimeout(function() {
+    cardsOpen[0].className += ' dismatch';
+    cardsOpen[1].className += ' dismatch';
+  }, 500);
 }
 
 /* ---- Check if the two cards match ---- */
 
 function checkMatch() {
-  let firstCard = cardsOpen[0];
-  let secondCard = cardsOpen[1];
-  let firstIcon = firstCard.firstElementChild;
-  let secondIcon = secondCard.firstElementChild;
-  if (firstIcon === secondIcon) {
+  let firstCard = cardsOpen[0].innerHTML;
+  let secondCard = cardsOpen[1].innerHTML;
+
+  if (firstCard === secondCard) {
     matchCard();
     cardsMatched++;
+
+  } else {
+    dismatchCard();
   }
 }
 
@@ -128,21 +143,25 @@ function game() {
       return; // disable clicking the same card twice
 
     } else if (card.className === 'card' && cardNumber < 2) {
-
-      addCardsToTempArray(); // adds cards to open cards array
       openCard(); // shows the card
-      cardNumber++;
-      checkMatch();
-      moves++;
-
+      addCardsToTempArray(card); // adds cards to open cards array
       if (cardNumber === 2) {
-        removeCardsFromTempArray();
-        removeClass();
-    }
+        checkMatch();
+        moves++;
+
+      }
   }
+
  });
 }
 
+
+/*
+checkMatch();
+moves++;
+removeCardsFromTempArray();
+removeClass();
+*/
 
 /* ------------ Star ranking function ------- */
 
