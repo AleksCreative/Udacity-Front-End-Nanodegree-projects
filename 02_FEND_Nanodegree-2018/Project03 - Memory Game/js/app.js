@@ -160,20 +160,22 @@ function game() {
 
 /* ------------ Moves showing function when game is played ------- */
 
-let movesDisplay = document.querySelector('.moves');
+let movesDisplay = document.querySelectorAll('.moves');
 
 function displayMoves() {
   for (let m = 0; m < moves; m++) {
     if (moves === 1) {
-      movesDisplay.textContent = moves + ' Move.';
+      movesDisplay[0].textContent = moves + ' Move.';
     } else {
-      movesDisplay.textContent = moves + ' Moves.';
+      movesDisplay[0].textContent = moves + ' Moves.';
+      movesDisplay[1].textContent = moves + ' Moves';
     }
   }
 }
 
 function resetDisplayMoves() {
-  movesDisplay.textContent = '0 Moves.';
+  movesDisplay[0].textContent = '0 Moves.';
+  movesDisplay[1].textContent = '0 Moves'
 }
 
 
