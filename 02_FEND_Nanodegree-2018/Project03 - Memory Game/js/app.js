@@ -105,6 +105,7 @@ function removeClass() {
   setTimeout(function() {
     cardsOpen[0].className = 'card';
     cardsOpen[1].className = 'card';
+    removeCardsFromTempArray();
   }, 800);
 }
 
@@ -151,7 +152,7 @@ function game() {
         moves++;
         }
       } else {
-        removeCardsFromTempArray();
+        return;
     }
  });
 }
