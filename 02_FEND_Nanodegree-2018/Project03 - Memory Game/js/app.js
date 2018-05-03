@@ -150,11 +150,33 @@ function game() {
       if (cardNumber === 2) {
         checkMatch();
         moves++;
+        displayMoves();
         }
       } else {
         return;
     }
  });
+}
+
+/* ------------ Moves showing function when game is played ------- */
+
+let movesDisplay = document.querySelector('.moves');
+
+function displayMoves() {
+  for (let m = 0; m < moves; m++) {
+    if (moves === 0) {
+      movesDisplay.textContent = "0 Moves."
+    }
+    else if (moves === 1) {
+      movesDisplay.textContent = moves + ' Move.';
+    } else {
+      movesDisplay.textContent = moves + ' Moves.';
+    }
+  }
+}
+
+function resetDisplayMoves() {
+  movesDisplay.textContent = "0 Moves."
 }
 
 
@@ -196,6 +218,8 @@ function restartGame() {
 
   resetGame.addEventListener('click', function(){
     removeCards();
+    moves = 0;
+    resetDisplayMoves();
     startGame();
   });
 
