@@ -38,7 +38,7 @@ let cardItem = ' ';
 /* Function that creates a list items and icons of a length of the cardArray and assign them classes */
 
 function makeList() {
-  for(let i = 0; i < cardArray.length; i++) {
+    for(let i = 0; i < cardArray.length; i++) {
     listItem = document.createElement('li');
     listItem.className = 'card';
     cardDeck.appendChild(listItem);
@@ -164,10 +164,7 @@ let movesDisplay = document.querySelector('.moves');
 
 function displayMoves() {
   for (let m = 0; m < moves; m++) {
-    if (moves === 0) {
-      movesDisplay.textContent = "0 Moves."
-    }
-    else if (moves === 1) {
+    if (moves === 1) {
       movesDisplay.textContent = moves + ' Move.';
     } else {
       movesDisplay.textContent = moves + ' Moves.';
@@ -176,7 +173,7 @@ function displayMoves() {
 }
 
 function resetDisplayMoves() {
-  movesDisplay.textContent = "0 Moves."
+  movesDisplay.textContent = '0 Moves.';
 }
 
 
@@ -229,7 +226,6 @@ restartGame();
 
 /*
 
-.firstElementChild.className
 
  If a card is clicked:
 
