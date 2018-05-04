@@ -196,20 +196,28 @@ if(moves <= 10) {
 
 /* ----------- Modal pop-up -------------- */
 
-let modal = document.getElementById('modal');
+const modal = document.getElementById('modal');
 
 function toggleModal() {
   if (cardsMatched === 8) {
     setTimeout(function() {
       modal.classList.toggle('hidden');
-    }, 600);
+    }, 500);
   }
 }
+
 /* -------------- Switch off modal function ------------ */
 
 function switchOffModal() {
   modal.className = 'hidden';
 }
+
+/* -------------- Modal buttons functions ------------- */
+const yesButton = document.querySelector('.yes-button');
+const noButton = document.querySelector('.no-button');
+
+yesButton.addEventListener('click', reset);
+noButton.addEventListener('click', switchOffModal);
 
 /* --------------- Start the Game ---------------- */
 
@@ -218,25 +226,24 @@ document.addEventListener('DOMContentLoaded', startGame, false);
 function startGame(){
   makeList(); // puts shuffled cards on the table
   game(); // responds to card clicks (game play)
-
 }
 
-/* --------- Restart Game --------- */
+/* ------------ Reset the game ----- */
+function reset(){
+  removeCards();
+  moves = 0;
+  cardsMatched = 0;
+  resetDisplayMoves();
+  switchOffModal();
+  startGame();
+}
+
+/* --------- Restart Buttons functionality --------- */
 
 function restartGame() {
-
   let resetGame = document.querySelector('.restart');
-
-  resetGame.addEventListener('click', function(){
-    removeCards();
-    moves = 0;
-    resetDisplayMoves();
-    switchOffModal();
-    startGame();
-  });
-
+  resetGame.addEventListener('click', reset);
 }
-
 restartGame();
 
 /*
