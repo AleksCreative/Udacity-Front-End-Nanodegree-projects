@@ -152,6 +152,7 @@ function game() {
         moves++;
         displayMoves();
         }
+        toggleModal(); // toggles the modal if the game is finished
       } else {
         return;
     }
@@ -183,6 +184,7 @@ function resetDisplayMoves() {
 
 
 function showStars() {
+
 if(moves <= 10) {
   //show 3 stars
 } else if (moves > 10 && moves < 20) {
@@ -194,9 +196,13 @@ if(moves <= 10) {
 
 /* ----------- Modal pop-up -------------- */
 
-if (cardsMatched === 8) {
-  let modal = getElementById('modal');
-  //toggles css display: block etc...
+function toggleModal() {
+  let modal = document.getElementById('modal');
+  if (cardsMatched === 8) {
+    setTimeout(function() {
+      modal.classList.toggle('hidden');
+    }, 600);
+  }
 }
 
 
@@ -207,6 +213,7 @@ document.addEventListener('DOMContentLoaded', startGame, false);
 function startGame(){
   makeList(); // puts shuffled cards on the table
   game(); // responds to card clicks (game play)
+
 }
 
 /* --------- Restart Game --------- */

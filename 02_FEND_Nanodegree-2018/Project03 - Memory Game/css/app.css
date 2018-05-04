@@ -110,7 +110,6 @@ h1 {
 }
 
 #modal {
-  display: none;
   position: absolute;
   z-index: 100;
   background: #c2d76d;
@@ -124,11 +123,17 @@ h1 {
 	-webkit-box-shadow: 3px 4px 0px 0px #415539;
 	box-shadow: 3px 4px 0px 0px #415539;
 }
+
+.hidden {
+    display: none;
+}
+
 .congrats {
   color: #ab177d;
   font-size: 45px;
   margin-bottom: 0;
 }
+
 #modal .you-won {
   margin-top: 0;
   font-size: 30px;
