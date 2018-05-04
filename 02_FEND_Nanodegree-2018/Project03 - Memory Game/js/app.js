@@ -196,15 +196,20 @@ if(moves <= 10) {
 
 /* ----------- Modal pop-up -------------- */
 
+let modal = document.getElementById('modal');
+
 function toggleModal() {
-  let modal = document.getElementById('modal');
   if (cardsMatched === 8) {
     setTimeout(function() {
       modal.classList.toggle('hidden');
     }, 600);
   }
 }
+/* -------------- Switch off modal function ------------ */
 
+function switchOffModal() {
+  modal.className = 'hidden';
+}
 
 /* --------------- Start the Game ---------------- */
 
@@ -226,6 +231,7 @@ function restartGame() {
     removeCards();
     moves = 0;
     resetDisplayMoves();
+    switchOffModal();
     startGame();
   });
 
