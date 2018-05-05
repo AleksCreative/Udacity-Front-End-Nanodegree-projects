@@ -1,12 +1,30 @@
 /* ---------- ALEKS' MEMORY GAME. Udacity FEND Project 3 ---------- */
-
 /* ---------------------------------------------------------------- */
 
-/* Array that holds all of the card classes */
+/* ----------------------- GAME SETUP ----------------------------- */
 
-let cardArray = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb', 'fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb' ];
+/* ---------- Array that holds all of the card classes ------------ */
 
-/* ----------------------- Cards Shuffle ------------------------ */
+let cardArray = [
+                  'fa-diamond',
+                  'fa-paper-plane-o',
+                  'fa-anchor',
+                  'fa-bolt',
+                  'fa-cube',
+                  'fa-leaf',
+                  'fa-bicycle',
+                  'fa-bomb',
+                  'fa-diamond',
+                  'fa-paper-plane-o',
+                  'fa-anchor',
+                  'fa-bolt',
+                  'fa-cube',
+                  'fa-leaf',
+                  'fa-bicycle',
+                  'fa-bomb'
+                ];
+
+/* ----------------------- Cards Shuffle -------------------------- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
@@ -20,22 +38,19 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
-/* ------------- Creating a list of cards with icons --------------- */
+/* ------------- Creating a list of cards with icons -------------- */
 
-/* Select the ul .deck element */
+const cardDeck = document.querySelector('.deck'); // Select the ul .deck element
 
-const cardDeck = document.querySelector('.deck');
-
-/* Declare empty list items and icon variables */
+/* ---------- Declare empty list items and icon variables --------- */
 
 let listItem = ' ';
 let cardItem = ' ';
 
-/* Function that creates a list items and icons of a length of the cardArray and assign them classes */
+/* Function that creates a list of cards of a length of the cardArray and assign them classes */
 
 function makeList() {
     for(let i = 0; i < cardArray.length; i++) {
@@ -47,14 +62,16 @@ function makeList() {
     cardItem.className = 'fa';
     listItem.appendChild(cardItem);
   }
+
   let shuffledClasses = shuffle(cardArray);
   let cardItems = document.querySelectorAll('.card .fa');
+
   for (let j = 0; j < cardArray.length; j++) {
   cardItems[j].classList.add(shuffledClasses[j]);
   }
 }
 
-/* Function that clears out the card deck */
+/* ----------- Function that clears out the card deck ------------ */
 
 function removeCards () {
   while(cardDeck.hasChildNodes()) {
@@ -62,44 +79,44 @@ function removeCards () {
   }
 }
 
-/* ----- Declaring variables for the game functions ------- */
+/* ------------------ MAIN GAME FUNCTIONALITY ------------------- */
+
+/* --------- Declaring variables for the game functions --------- */
 
 let cardsOpen = [ ];
-
 let cardNumber = 0;
-
 let moves = 0;
 let cardsMatched = 0;
 let card = cardDeck.children;
 
-/* ---- Adding classes to show the cards ---- */
+/* --------------- Adding classes to show the cards ------------ */
 
 function openCard() {
   card.className += ' open show';
 }
 
-/* ---- Adding opened cards to the array ---- */
+/* -------------- Adding opened cards to the array ------------- */
 
 function addCardsToTempArray() {
   cardsOpen.push(card);
   cardNumber++;
 }
 
-/* ---- Removing opened cards to the array ---- */
+/* ------------ Removing opened cards to the array ------------ */
 
 function removeCardsFromTempArray() {
   cardsOpen = [ ];
   cardNumber = 0;
 }
 
-/* ---- Adding classes to the matched cards ---- */
+/* ------------ Adding classes to the matched cards ----------- */
 
 function matchCard() {
   cardsOpen[0].className += ' match';
   cardsOpen[1].className += ' match';
 }
 
-/* ---- Removing classes from cards ---- */
+/* --------------- Removing classes from cards ---------------- */
 
 function removeClass() {
   setTimeout(function() {
@@ -109,7 +126,7 @@ function removeClass() {
   }, 800);
 }
 
-/* ---- Adding classes when cards don't match ---- */
+/* Adding .dismatch when cards don't match and turning them back */
 
 function dismatchCard() {
   setTimeout(function() {
@@ -119,7 +136,7 @@ function dismatchCard() {
   removeClass();
 }
 
-/* ---- Check if the two cards match ---- */
+/* --------------- Check if the two cards match -------------- */
 
 function checkMatch() {
   let firstCard = cardsOpen[0].innerHTML;
@@ -134,11 +151,10 @@ function checkMatch() {
   }
 }
 
-/* ---- Main game functions ---- */
+/* -------------------- Main game function ------------------- */
 
 function game() {
   cardDeck.addEventListener('click', function(e){
-
     card = e.target;
 
     if (card.className === 'card open show'){
@@ -148,40 +164,41 @@ function game() {
       openCard(); // shows the card
       addCardsToTempArray(); // adds cards to open cards array
       if (cardNumber === 2) {
-        checkMatch();
-        moves++;
-        displayMoves();
+        checkMatch(); // check if the two cards match
+        moves++; // increase the moves
+        displayMoves(); // update the current number of used moves
         }
-        toggleModal(); // toggles the modal if the game is finished
+      toggleModal(); // toggles the modal if the game is finished
       } else {
         return;
     }
  });
 }
 
-/* ------------ Moves showing function when game is played ------- */
+/* ------------------- MOVES and STARS BAR ------------------- */
+
+/* ------------------- Show moves function ------------------- */
 
 let movesDisplay = document.querySelectorAll('.moves');
 
 function displayMoves() {
   for (let m = 0; m < moves; m++) {
     if (moves === 1) {
-      movesDisplay[0].textContent = moves + ' Move.';
+      movesDisplay[0].textContent = moves + ' Move.'; // targeting the .moves class within the top bar when the game is played
     } else {
       movesDisplay[0].textContent = moves + ' Moves.';
-      movesDisplay[1].textContent = moves + ' Moves';
+      movesDisplay[1].textContent = moves + ' Moves'; // targeting the .moves class within the modal
     }
   }
 }
+/* ------------------- Reset moves to 0 ---------------------- */
 
 function resetDisplayMoves() {
   movesDisplay[0].textContent = '0 Moves.';
   movesDisplay[1].textContent = '0 Moves'
 }
 
-
-/* ------------ Star ranking function ------- */
-
+/* -------------------- Star ranking function --------------- */
 
 function showStars() {
 
@@ -194,7 +211,7 @@ if(moves <= 10) {
   }
 }
 
-/* ----------- Modal pop-up -------------- */
+/* ---------------------- Modal pop-up --------------------- */
 
 const modal = document.getElementById('modal');
 
@@ -206,39 +223,43 @@ function toggleModal() {
   }
 }
 
-/* -------------- Switch off modal function ------------ */
+/* --------------- Switch off modal function -------------- */
 
 function switchOffModal() {
   modal.className = 'hidden';
 }
 
-/* -------------- Modal buttons functions ------------- */
+/* ---------------- Modal buttons functions --------------- */
+
 const yesButton = document.querySelector('.yes-button');
 const noButton = document.querySelector('.no-button');
 
 yesButton.addEventListener('click', reset);
 noButton.addEventListener('click', switchOffModal);
 
-/* --------------- Start the Game ---------------- */
+/* ----------------- START & RESET GAME ------------------- */
+
+/*------------------ Start Game function ------------------ */
 
 document.addEventListener('DOMContentLoaded', startGame, false);
 
-function startGame(){
+function startGame() {
   makeList(); // puts shuffled cards on the table
-  game(); // responds to card clicks (game play)
+  game(); // holds main game functionality
 }
 
-/* ------------ Reset the game ----- */
-function reset(){
-  removeCards();
-  moves = 0;
-  cardsMatched = 0;
-  resetDisplayMoves();
-  switchOffModal();
-  startGame();
+/* -------------------- Reset the game -------------------- */
+
+function reset() {
+  removeCards(); // removes cards from the table
+  moves = 0; // resets the moves
+  cardsMatched = 0; // resets the matched cards number
+  resetDisplayMoves(); // resets the moves display to 0
+  switchOffModal(); // hides the modal pop-up
+  startGame(); // starts new game
 }
 
-/* --------- Restart Buttons functionality --------- */
+/* ------------- Restart Buttons functionality ----------- */
 
 function restartGame() {
   let resetGame = document.querySelector('.restart');
@@ -246,20 +267,4 @@ function restartGame() {
 }
 restartGame();
 
-/*
-
-
- If a card is clicked:
-
- *  - display the card's symbol (put this functionality in another function that you call from this one)
-
-
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
-
-
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+/* ------------------------------------------------------- */
