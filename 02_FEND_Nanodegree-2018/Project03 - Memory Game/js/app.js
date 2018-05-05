@@ -167,6 +167,7 @@ function game() {
         checkMatch(); // check if the two cards match
         moves++; // increase the moves
         displayMoves(); // update the current number of used moves
+        removeStars();
         }
       toggleModal(); // toggles the modal if the game is finished
       } else {
@@ -198,18 +199,32 @@ function resetDisplayMoves() {
   movesDisplay[1].textContent = '0 Moves'
 }
 
-/* -------------------- Star ranking function --------------- */
+/* -------------------- Star ranking function ---------------- */
 
-function showStars() {
+let star = document.querySelectorAll(".star")
 
-if(moves <= 10) {
-  //show 3 stars
-} else if (moves > 10 && moves < 20) {
-    //show 2 stars
-  } else {
-    // show 1 star
+function removeStars() {
+if (moves > 10 && moves <= 16) {
+    star[0].setAttribute('style', 'visibility: hidden'); // shows 2 stars in the main bar
+    star[5].setAttribute('style', 'visibility: hidden'); // show 2 stars in the modal
+  } else if (moves > 16) {
+    star[0].setAttribute('style', 'visibility: hidden'); // shows 1 star in the main bar
+    star[1].setAttribute('style', 'visibility: hidden');
+    star[4].setAttribute('style', 'visibility: hidden'); // show 1 star in the modal
+    star[5].setAttribute('style', 'visibility: hidden');
   }
 }
+
+/* ------------------ Reset stars to show all 3 ------------- */
+
+function showAllStars() {
+  star[0].removeAttribute('style');
+  star[1].removeAttribute('style');
+  star[4].removeAttribute('style');
+  star[5].removeAttribute('style');
+}
+
+/* ------------------------- MODAL ------------------------- */
 
 /* ---------------------- Modal pop-up --------------------- */
 
@@ -255,6 +270,7 @@ function reset() {
   moves = 0; // resets the moves
   cardsMatched = 0; // resets the matched cards number
   resetDisplayMoves(); // resets the moves display to 0
+  showAllStars(); // shows 3 stars
   switchOffModal(); // hides the modal pop-up
   startGame(); // starts new game
 }
