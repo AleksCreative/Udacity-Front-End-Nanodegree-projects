@@ -154,15 +154,16 @@ function checkMatch() {
 /* -------------------- Main game function ------------------- */
 
 function game() {
+  runTimer();
   cardDeck.addEventListener('click', function(e){
     card = e.target;
-
     if (card.className === 'card open show'){
       return; // disable clicking the same card twice
 
     } else if (card.className === 'card' && cardNumber < 2) {
       openCard(); // shows the card
       addCardsToTempArray(); // adds cards to open cards array
+
       if (cardNumber === 2) {
         checkMatch(); // check if the two cards match
         moves++; // increase the moves
@@ -224,6 +225,36 @@ function showAllStars() {
   star[5].removeAttribute('style');
 }
 
+/* -------------------------- TIMER ------------------------ */
+
+let myTimer = document.querySelector('.timer');
+let seconds = 0;
+let minutes = 0;
+let totalTime = minutes + ':' + seconds;
+
+function runTimer() {
+  setInterval(setTime, 1000);
+}
+
+function setTime() {
+  myTimer.textContent = 'Timer: '+ minutes + ':' + seconds;
+  seconds++;
+  if (seconds === 60) {
+    minutes++;
+    seconds = 0;
+  } else if (minutes === 60) {
+    window.alert("Sorry, you run out of time!");
+    seconds = 0;
+    minutes = 0;
+  }
+}
+
+function resetTime() {
+  clearInterval(setTime, 1000);
+  seconds = 0;
+  minutes = 0;
+}
+
 /* ------------------------- MODAL ------------------------- */
 
 /* ---------------------- Modal pop-up --------------------- */
@@ -261,6 +292,8 @@ document.addEventListener('DOMContentLoaded', startGame, false);
 function startGame() {
   makeList(); // puts shuffled cards on the table
   game(); // holds main game functionality
+
+
 }
 
 /* -------------------- Reset the game -------------------- */
@@ -271,6 +304,7 @@ function reset() {
   cardsMatched = 0; // resets the matched cards number
   resetDisplayMoves(); // resets the moves display to 0
   showAllStars(); // shows 3 stars
+  resetTime();
   switchOffModal(); // hides the modal pop-up
   startGame(); // starts new game
 }
