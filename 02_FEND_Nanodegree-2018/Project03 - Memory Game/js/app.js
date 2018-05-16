@@ -237,6 +237,7 @@ let seconds = 0;
 let minutes = 0;
 
 /* ------------ Function that starts the timer ------------- */
+
 function runTimer() {
   if (time === 0) {
     time++;
@@ -245,19 +246,22 @@ function runTimer() {
 }
 
 function setTime() {
-  myTimer[0].textContent = 'Timer: '+ minutes + ':' + seconds;
-  myTimer[1].textContent = minutes + ':' + seconds;
+  myTimer[0].textContent = 'Timer: '+ minutes + ':0' + seconds;
+  myTimer[1].textContent = minutes + ':0' + seconds;
   seconds++;
-	if (seconds < 10) {
-    seconds = '0' + seconds;
-  } else if (seconds === 60) {
-      minutes++;
-      seconds = 0;
-  } else if (minutes === 60) {
-      window.alert("Sorry, you run out of time!");
-      seconds = 0;
-      minutes = 0;
+	if (seconds > 9) {
+    myTimer[0].textContent = 'Timer: '+ minutes + ':' + seconds;
+    myTimer[1].textContent = minutes + ':' + seconds;
+    if (seconds === 59) {
+        minutes++;
+        seconds = 0;
+    } else if (minutes === 60) {
+        window.alert("Sorry, you run out of time!");
+        seconds = 0;
+        minutes = 0;
+    }
   }
+
 }
 
 function resetTime() {
