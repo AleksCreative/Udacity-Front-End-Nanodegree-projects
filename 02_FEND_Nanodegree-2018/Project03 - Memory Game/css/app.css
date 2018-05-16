@@ -80,11 +80,27 @@ h1 {
     font-size: 33px;
 }
 
+@keyframes popIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    background: #02efda;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    animation: popIn .7s;
 }
+
+
 .deck .card.dismatch {
     cursor: default;
     background: #da884c;

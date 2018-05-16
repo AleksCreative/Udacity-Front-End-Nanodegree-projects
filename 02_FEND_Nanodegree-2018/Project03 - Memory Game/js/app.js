@@ -112,9 +112,10 @@ function removeCardsFromTempArray() {
 /* ------------ Adding classes to the matched cards ----------- */
 
 function matchCard() {
-  cardsOpen[0].className += ' match';
-  cardsOpen[1].className += ' match';
-}
+    cardsOpen[0].className += ' match';
+    cardsOpen[1].className += ' match';
+    }
+
 
 /* --------------- Removing classes from cards ---------------- */
 
