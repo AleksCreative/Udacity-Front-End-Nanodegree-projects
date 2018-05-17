@@ -1,3 +1,5 @@
+/* Credits: gradients created with: https://mycolor.space/ */
+
 html {
     box-sizing: border-box;
 }
@@ -17,7 +19,13 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: repeating-linear-gradient(
+  90deg,
+  #248AE7,
+  #248AE7 10px,
+  #187DD8 10px,
+  #187DD8 20px
+);
     font-family: 'Coda', cursive;
 }
 
@@ -28,10 +36,6 @@ body {
     flex-direction: column;
 }
 
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-}
 
 /*
  * Styles for the deck of cards
@@ -40,10 +44,10 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(to right bottom, #8affff, #7dfbff, #70f8ff, #60f4ff, #4ff0ff);
     padding: 32px;
     border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    box-shadow: 8px 8px 10px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -80,6 +84,8 @@ h1 {
     font-size: 33px;
 }
 
+/* Animation for matching cards */
+
 @keyframes popIn {
   0% {
     transform: scale(1);
@@ -95,7 +101,7 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #1cdb4f;
     font-size: 33px;
     animation: popIn .7s;
 }
@@ -103,7 +109,7 @@ h1 {
 
 .deck .card.dismatch {
     cursor: default;
-    background: #da884c;
+    background: #ff1956;
     font-size: 33px;
     transform: rotate(20deg);
 }
@@ -136,16 +142,15 @@ h1 {
 #modal {
   position: absolute;
   z-index: 100;
-  background: #c2d76d;
+  background: linear-gradient(to bottom, #e9ff00, #41e66e, #00bea6, #0090b1, #00608b);
   -moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
   border-radius: 10px;
-  padding: 20px;
+  padding: 40px;
   padding-top: 1px;
   text-align: center;
-  -moz-box-shadow: 3px 4px 0px 0px #415539;
-	-webkit-box-shadow: 3px 4px 0px 0px #415539;
-	box-shadow: 3px 4px 0px 0px #415539;
+  box-shadow: 8px 8px 10px 0 rgba(46, 61, 73, 0.5);
+
 }
 
 .hidden {
@@ -153,7 +158,7 @@ h1 {
 }
 
 .congrats {
-  color: #ab177d;
+  color: #ff1956;
   font-size: 45px;
   margin-bottom: 0;
 }
@@ -163,86 +168,35 @@ h1 {
   font-size: 30px;
 }
 
-/* Styling of the YES/NO buttons (tweaked, taken from: https://www.bestcssbuttongenerator.com) */
 
-/* NO button */
-
-.no-button {
-  margin: 5px;
-	-moz-box-shadow: 3px 4px 0px 0px #8a2a21;
-	-webkit-box-shadow: 3px 4px 0px 0px #8a2a21;
-	box-shadow: 3px 4px 0px 0px #8a2a21;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
-	background: -moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-	background: -webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-	background: -o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-	background: -ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
-	background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24437',GradientType=0);
-	background-color: #c62d1f;
-	-moz-border-radius: 18px;
-	-webkit-border-radius: 18px;
-	border-radius: 18px;
-	border:1px solid #d02718;
-	display: inline-block;
+.m-button {
+  margin: 10px;
+  border-radius: 10px;
 	cursor: pointer;
 	color: #ffffff;
 	font-size: 20px;
 	padding: 7px 25px;
-	text-decoration:none;
   font-weight: bold;
-	text-shadow:0px 1px 0px #810e05;
 }
+
+/* NO button */
+
+.no-button {
+	background-color: #ff1956;
+}
+
 .no-button:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24437), color-stop(1, #c62d1f));
-	background:-moz-linear-gradient(top, #f24437 5%, #c62d1f 100%);
-	background:-webkit-linear-gradient(top, #f24437 5%, #c62d1f 100%);
-	background:-o-linear-gradient(top, #f24437 5%, #c62d1f 100%);
-	background:-ms-linear-gradient(top, #f24437 5%, #c62d1f 100%);
-	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24437', endColorstr='#c62d1f',GradientType=0);
-	background-color:#f24437;
-  font-size: 22px;
-}
+	background-color:#e2003c;
+  }
 
 /* YES button */
 
 .yes-button {
-  margin: 5px;
-	-moz-box-shadow: 3px 4px 0px 0px #3e7327;
-	-webkit-box-shadow: 3px 4px 0px 0px #3e7327;
-	box-shadow: 3px 4px 0px 0px #3e7327;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #66a647));
-	background:-moz-linear-gradient(top, #77b55a 5%, #66a647 100%);
-	background:-webkit-linear-gradient(top, #77b55a 5%, #66a647 100%);
-	background:-o-linear-gradient(top, #77b55a 5%, #66a647 100%);
-	background:-ms-linear-gradient(top, #77b55a 5%, #66a647 100%);
-	background:linear-gradient(to bottom, #77b55a 5%, #66a647 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#66a647',GradientType=0);
-	background-color:#77b55a;
-	-moz-border-radius:18px;
-	-webkit-border-radius:18px;
-	border-radius:18px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:20px;
-	padding:7px 25px;
-	text-decoration:none;
-  font-weight: bold;
-	text-shadow:0px 1px 0px #5b8a3c;
+	background-color: #1cdb4f;
 }
+
 .yes-button:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
-	background:-moz-linear-gradient(top, #72b352 5%, #77b55a 100%);
-	background:-webkit-linear-gradient(top, #72b352 5%, #77b55a 100%);
-	background:-o-linear-gradient(top, #72b352 5%, #77b55a 100%);
-	background:-ms-linear-gradient(top, #72b352 5%, #77b55a 100%);
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a',GradientType=0);
-	background-color:#72b352;
-  font-size: 22px;
+	background-color:#1cbc47;
 }
 
 .play-again-buttons {

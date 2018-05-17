@@ -6,22 +6,22 @@
 /* ---------- Array that holds all of the card classes ------------ */
 
 let cardArray = [
-                  'fa-diamond',
-                  'fa-paper-plane-o',
-                  'fa-anchor',
-                  'fa-bolt',
-                  'fa-cube',
-                  'fa-leaf',
-                  'fa-bicycle',
-                  'fa-bomb',
-                  'fa-diamond',
-                  'fa-paper-plane-o',
-                  'fa-anchor',
-                  'fa-bolt',
-                  'fa-cube',
-                  'fa-leaf',
-                  'fa-bicycle',
-                  'fa-bomb'
+                  'fa-android',
+                  'fa-angellist',
+                  'fa-bitcoin',
+                  'fa-balance-scale',
+                  'fa-heart',
+                  'fa-bug',
+                  'fa-coffee',
+                  'fa-bus',
+                  'fa-android',
+                  'fa-angellist',
+                  'fa-bitcoin',
+                  'fa-balance-scale',
+                  'fa-heart',
+                  'fa-bug',
+                  'fa-coffee',
+                  'fa-bus'
                 ];
 
 /* ----------------------- Cards Shuffle -------------------------- */
@@ -41,7 +41,7 @@ function shuffle(array) {
     return array;
 }
 
-/* ------------- Creating a list of cards with icons -------------- */
+/* ------------- Create a list of cards with icons -------------- */
 
 const cardDeck = document.querySelector('.deck'); // Select the ul .deck element
 
@@ -53,14 +53,14 @@ let cardItem = ' ';
 /* Function that creates a list of cards of a length of the cardArray and assign them classes */
 
 function makeList() {
-    for(let i = 0; i < cardArray.length; i++) {
-    listItem = document.createElement('li');
-    listItem.className = 'card';
-    cardDeck.appendChild(listItem);
+  for (let i = 0; i < cardArray.length; i++) {
+  listItem = document.createElement('li');
+  listItem.className = 'card';
+  cardDeck.appendChild(listItem);
 
-    cardItem = document.createElement('i');
-    cardItem.className = 'fa';
-    listItem.appendChild(cardItem);
+  cardItem = document.createElement('i');
+  cardItem.className = 'fa';
+  listItem.appendChild(cardItem);
   }
 
   let shuffledClasses = shuffle(cardArray);
@@ -81,7 +81,7 @@ function removeCards () {
 
 /* ------------------ MAIN GAME FUNCTIONALITY ------------------- */
 
-/* --------- Declaring variables for the game functions --------- */
+/* --------- Declare variables for the game functions --------- */
 
 let cardsOpen = [ ];
 let cardNumber = 0;
@@ -183,7 +183,7 @@ function game() {
 
 /* ------------------- Show moves function ------------------- */
 
-let movesDisplay = document.querySelectorAll('.moves');
+const movesDisplay = document.querySelectorAll('.moves');
 
 function displayMoves() {
   for (let m = 0; m < moves; m++) {
@@ -204,13 +204,13 @@ function resetDisplayMoves() {
 
 /* -------------------- Star ranking function ---------------- */
 
-let star = document.querySelectorAll(".star")
+const star = document.querySelectorAll(".star")
 
 function removeStars() {
-if (moves > 10 && moves <= 16) {
+if (moves > 12 && moves <= 18) {
     star[0].setAttribute('style', 'visibility: hidden'); // shows 2 stars in the main bar
     star[5].setAttribute('style', 'visibility: hidden'); // show 2 stars in the modal
-  } else if (moves > 16) {
+  } else if (moves > 18) {
     star[0].setAttribute('style', 'visibility: hidden'); // shows 1 star in the main bar
     star[1].setAttribute('style', 'visibility: hidden');
     star[4].setAttribute('style', 'visibility: hidden'); // show 1 star in the modal
@@ -231,7 +231,7 @@ function showAllStars() {
 
 /* ------------------- Timer variables --------------------- */
 
-let myTimer = document.querySelectorAll('.timer');
+const myTimer = document.querySelectorAll('.timer');
 let time = 0;
 let myInterval;
 let seconds = 0;
@@ -262,7 +262,6 @@ function setTime() {
         minutes = 0;
     }
   }
-
 }
 
 function resetTime() {
@@ -321,17 +320,17 @@ function reset() {
   resetDisplayMoves(); // resets the moves display to 0
   showAllStars(); // shows 3 stars
   switchOffModal(); // hides the modal pop-up
-  resetTime();
-  time = 0;
+  resetTime(); // sets the time to 0
+  time = 0; // restarts minutes and seconds
   startGame(); // starts new game
 }
 
 /* ------------- Restart Buttons functionality ----------- */
 
 function restartGame() {
-  let resetGame = document.querySelector('.restart');
+  const resetGame = document.querySelector('.restart');
   resetGame.addEventListener('click', reset);
 }
 restartGame();
 
-/* ------------------------------------------------------- */
+/* ----------------------- END --------------------------- */
