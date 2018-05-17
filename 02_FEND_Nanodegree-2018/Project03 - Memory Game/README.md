@@ -1,11 +1,12 @@
 # Aleks' Memory Game Project for Udacity FEND
 
-A complete browser-based card matching game made with HTML, CSS and JavaScript
+A complete browser-based card matching game made with HTML, CSS and JavaScript.
+You can [Play it Here](https://alekscreative.github.io/Udacity-Front-End-Nanodegree-projects/02_FEND_Nanodegree-2018/Project03%20-%20Memory%20Game/index.html) if you wish!
 
 ## Table of Contents
 
 * [Scope of the project](#scope-of-the-project)
-* [How to play](#instructions)
+* [How to play](#how-to-play)
 * [Contributing](#contributing)
 
 ## Scope of the project
