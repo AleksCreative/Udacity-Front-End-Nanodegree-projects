@@ -1,6 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
+    this.x = x;
+    this.y = y;
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
@@ -23,9 +25,9 @@ Enemy.prototype.render = function() {
 
 // Now write your own player class
 var Player = function(x, y){
-
-this.sprite = 'images/char-boy.png';
-
+  this.x = x;
+  this.y = y;
+  this.sprite = 'images/char-boy.png';
 };
 
 // This class requires an update(), render() and
@@ -43,7 +45,7 @@ Player.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 // Place the player object in a variable called player
-var player = new Player();
+var player = new Player(200,400);
 
 
 // This listens for key presses and sends the keys to your
