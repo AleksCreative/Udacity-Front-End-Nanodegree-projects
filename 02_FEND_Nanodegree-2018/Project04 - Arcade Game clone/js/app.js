@@ -30,15 +30,23 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-var Player = function(x, y){
+var Player = function(x, y, points){
   this.x = x;
   this.y = y;
   this.sprite = 'images/char-boy.png';
+  this.points = points;
 };
+
+
+
+
+
+
+
 
 // This class requires an update(), render() and
 Player.prototype.update = function() {
-  var points = 0;
+
   if (this.x > 400) {
     this.x = 400;
   } if (this.x < 0) {
@@ -49,8 +57,7 @@ Player.prototype.update = function() {
   } if (this.y < 0) {
     this.y = 400;
     this.x = 200;
-    points += 10;
-
+    this.points += 10;
   }
 };
 
@@ -76,7 +83,12 @@ Player.prototype.handleInput = function(keyPress) {
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 // Place the player object in a variable called player
-var player = new Player(200,400);
+var player = new Player(200,400, 0);
+
+// Score panel
+var pointNumber = document.getElementById('points');
+pointNumber.textContent = player.points;
+
 
 
 // This listens for key presses and sends the keys to your
