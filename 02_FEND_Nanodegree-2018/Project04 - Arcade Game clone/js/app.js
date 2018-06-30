@@ -38,6 +38,17 @@ var Player = function(x, y){
 
 // This class requires an update(), render() and
 Player.prototype.update = function() {
+  if (this.x > 400) {
+    this.x = 400;
+  } if (this.x < 0) {
+    this.x = 0;
+  } if (this.y > 400) {
+    this.y = 400;
+    // player go backs to start when reaches the water
+  } if (this.y < 0) {
+    this.y = 400;
+    this.x = 200;
+  }
 };
 
 Player.prototype.render = function() {
