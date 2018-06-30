@@ -1,11 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed, points) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
     this.speed = speed;
-    this.points = points;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -20,14 +19,15 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + this.speed * dt;
     // reset position of the enemy when reaches the end of canvas
     if (this.x > 510) {
-        this.x = -10;
-        this.speed = 100 + Math.floor(Math.random() * 2);
+        this.x = -60;
+        this.speed = 100 + Math.floor(Math.random() * 20);
     }
 
-    if (player.y < this.y + 50 &&
-        player.y + 50 > this.y &&
-        player.x + 70 > this.x &&
-        player.x < this.x + 70) {
+    if (player.y < this.y + 70 &&
+        player.y + 70 > this.y &&
+        player.x + 80 > this.x &&
+        player.x < this.x + 80) {
+        player.points = 0;  
         player.y = 400;
         player.x = 200;
       }
@@ -56,7 +56,7 @@ Player.prototype.update = function() {
   } if (this.y > 400) {
     this.y = 400;
     // player go backs to start when reaches the water, and gets 10 points score.
-  } if (this.y < 0) {
+  } if (this.y < -50) {
     this.y = 400;
     this.x = 200;
     this.points += 10;
