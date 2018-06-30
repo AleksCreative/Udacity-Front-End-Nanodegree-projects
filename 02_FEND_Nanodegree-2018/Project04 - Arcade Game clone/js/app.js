@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     // reset position of the enemy when reaches the end of canvas
     if (this.x > 510) {
         this.x = -10;
-        this.speed = 100 + Math.floor(Math.random() * 500);
+        this.speed = 100 + Math.floor(Math.random() * 2);
     }
 };
 
@@ -36,13 +36,6 @@ var Player = function(x, y, points){
   this.sprite = 'images/char-boy.png';
   this.points = points;
 };
-
-
-
-
-
-
-
 
 // This class requires an update(), render() and
 Player.prototype.update = function() {
@@ -81,7 +74,13 @@ Player.prototype.handleInput = function(keyPress) {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [];
+
+var enemy1 = new Enemy(-50, 60, 70);
+var enemy2 = new Enemy(-20, 145, 100);
+var enemy3 = new Enemy(-100, 225, 60);
+
+var allEnemies = [enemy1, enemy2, enemy3];
+
 // Place the player object in a variable called player
 var player = new Player(200,400, 0);
 
