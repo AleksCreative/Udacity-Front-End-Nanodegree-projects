@@ -27,7 +27,7 @@ Enemy.prototype.update = function(dt) {
         player.y + 70 > this.y &&
         player.x + 80 > this.x &&
         player.x < this.x + 80) {
-        player.points = 0;  
+        player.points = 0;
         player.y = 400;
         player.x = 200;
       }
@@ -46,7 +46,7 @@ var Player = function(x, y, points){
   this.points = points;
 };
 
-// This class requires an update(), render() and
+// This class requires an update(),
 Player.prototype.update = function() {
 
   if (this.x > 400) {
@@ -61,11 +61,14 @@ Player.prototype.update = function() {
     this.x = 200;
     this.points += 10;
   }
+  // points update in the score panel
+  pointNumber.textContent = player.points;
 };
-
+// render() and
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 // a handleInput() method.
 Player.prototype.handleInput = function(keyPress) {
   switch (keyPress) {
@@ -79,7 +82,6 @@ Player.prototype.handleInput = function(keyPress) {
     break;
   }
 }
-
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -95,8 +97,6 @@ var player = new Player(200,400, 0);
 
 // Score panel
 var pointNumber = document.getElementById('points');
-pointNumber.textContent = player.points;
-
 
 
 // This listens for key presses and sends the keys to your
