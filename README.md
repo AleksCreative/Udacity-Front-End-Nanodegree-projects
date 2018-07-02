@@ -16,13 +16,13 @@
   - [code](https://github.com/AleksCreative/Udacity-Front-End-Nanodegree-projects/tree/master/02_FEND_Nanodegree-2018/Project02%20-%20Portfolio%20Site)
   - [preview](https://alekscreative.github.io/Udacity-Front-End-Nanodegree-projects/02_FEND_Nanodegree-2018/Project02%20-%20Portfolio%20Site/index.html)
 ###### Web Programming with JavaScript  
-- [ ] **Project 3** - Memory Game
+- [x] **Project 3** - Memory Game
   - [code](https://github.com/AleksCreative/Udacity-Front-End-Nanodegree-projects/tree/master/02_FEND_Nanodegree-2018/Project03%20-%20Memory%20Game)
   - [preview](https://alekscreative.github.io/Udacity-Front-End-Nanodegree-projects/02_FEND_Nanodegree-2018/Project03%20-%20Memory%20Game/index.html)
 ###### Exploring JS - Objects, Tools and Testing  
-- [ ] **Project 4** - Classic Arcade Game Clone
-  - code
-  - preview
+- [x] **Project 4** - Classic Arcade Game Clone
+  - [code](https://github.com/AleksCreative/Udacity-Front-End-Nanodegree-projects/tree/master/02_FEND_Nanodegree-2018/Project04%20-%20Arcade%20Game%20clone)
+   - [preview](https://alekscreative.github.io/Udacity-Front-End-Nanodegree-projects/02_FEND_Nanodegree-2018/Project04%20-%20Arcade%20Game%20clone/index.html)
 - [ ] **Project 5** - Feed Reader Testing
   - code
   - preview  
