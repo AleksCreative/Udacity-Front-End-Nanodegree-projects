@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     // reset position of the enemy when reaches the end of canvas
     if (this.x > 510) {
         this.x = -60;
-        this.speed = 100 + Math.floor(Math.random() * 20);
+        this.speed = 100 + Math.floor(Math.random() * 40);
     }
 
     if (player.y < this.y + 70 &&
@@ -89,8 +89,9 @@ Player.prototype.handleInput = function(keyPress) {
 var enemy1 = new Enemy(-50, 60, 70);
 var enemy2 = new Enemy(-20, 145, 100);
 var enemy3 = new Enemy(-100, 225, 60);
+var enemy4 = new Enemy(-310, 145, 100);
 
-var allEnemies = [enemy1, enemy2, enemy3];
+var allEnemies = [enemy1, enemy2, enemy3, enemy4];
 
 // Place the player object in a variable called player
 var player = new Player(200,400, 0);
