@@ -41,4 +41,4 @@ Clone the original repository from Udacity and have a go yourself!
 * HTTPS `git clone https://github.com/udacity/frontend-nanodegree-arcade-game.git` or
 * SSH `git clone git@github.com:udacity/frontend-nanodegree-arcade-game.git`
 
-[Here are the instructions] (https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)
+[Here are the instructions](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true)
