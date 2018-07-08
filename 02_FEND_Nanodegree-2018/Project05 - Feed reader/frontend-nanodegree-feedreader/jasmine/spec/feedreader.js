@@ -53,7 +53,7 @@ $(function() {
 
     /* Test suite named "The menu" */
     describe('The menu', function() {
-      // targeted DOM elements assigned to variable for use in the Meny suite
+      // targeted DOM elements assigned to variables for use in the Meny suite
       const body = $('body');
       const mIcon = $('a.menu-icon-link');
         /* Test that ensures the menu element is
@@ -81,15 +81,23 @@ $(function() {
     });
     /* Test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-      
-    })
-        /* TODO: Write a test that ensures when the loadFeed
+      // targeted DOM element assigned to a variable for use in the Meny suite
+      const container = $('.feed');
+
+        /* Test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+         beforeEach(function(done) {
+           loadFeed(0, done);
+        });
 
+         it('is entry element in feed container', function() {
+           expect(container.children().children().hasClass('entry')).toBe(true);
+         })
+    })
     /* TODO: Write a new test suite named "New Feed Selection" */
 
         /* TODO: Write a test that ensures when a new feed is loaded
