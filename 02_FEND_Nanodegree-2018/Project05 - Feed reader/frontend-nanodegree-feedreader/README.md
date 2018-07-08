@@ -1,27 +1,9 @@
-# Project Overview
+# Feed Reader application testing
 
-In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
-
-
-## Why this Project?
-
-Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". This is when developers write tests first, before they ever start developing their application. All the tests initially fail and then they start writing application code to make these tests pass.
-
-Whether you work in an organization that uses test-driven development or in an organization that uses tests to make sure future feature development doesn't break existing features, it's an important skill to have!
+The purpose of this project is to learn the basics of unit testing using [Jasmine](http://jasmine.github.io/).
 
 
-## What will I learn?
-
-You will learn how to use Jasmine to write a number of tests against a pre-existing application. These will test the underlying business logic of the application as well as the event handling and DOM manipulation.
-
-
-## How will this help my career?
-
-* Writing effective tests requires analyzing multiple aspects of an application including the HTML, CSS and JavaScript - an extremely important skill when changing teams or joining a new company.
-* Good tests give you the ability to quickly analyze whether new code breaks an existing feature within your codebase, without having to manually test all of the functionality.
-
-
-# How will I complete this project?
+## Steps needed to complete the project
 
 Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
 
@@ -44,5 +26,33 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 17. No test should be dependent on the results of another.
 18. Callbacks should be used to ensure that feeds are loaded before they are tested.
 19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
+20. When complete - all of your tests should pass.
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
+
+## Project specification
+
+| Criteria | Meets specifications |
+|----------|----------|
+| All Required Tests Provided     | The required tests for the project (`RSS Feed` testing, `RSS Feed` properties, menu default state, and menu hiding/showing) are all provided and are comprehensive enough to adequately test the functionality.      |
+|     | Tests should be independent of one another.     |
+| Passing    | All required tests for the project pass. |
+| README | A `README` file is included detailing all steps required to successfully run the application.|
+| Comments | Comments are present and effectively explain longer code procedures.|
+| Code Quality | Code is formatted with consistent, logical, and easy-to-read formatting as described in the [Udacity JavaScript Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html). |
+
+## How to run the application
+
+1. Clone the repo onto your computer with `git clone https://github.com/AleksCreative/Udacity-Front-End-Nanodegree-projects.git`
+
+2. Open **02_FEND_Nanodegree-2018\Project05 - Feed reader\frontend-nanodegree-feedreader** folder
+
+3. Open `index.html` file in your browser. The tests will appear at the bottom of the screen.
+
+## How to edit the application
+
+Go to **jasmine/spec/** folder and open `feedreader.js` in your favourite code editor. You can see all the tests are running from this file. Feel free to add more tests.
+
+If you want to start from scratch you can clone the original project files from Udacity's repo below:
+`git clone https://github.com/udacity/frontend-nanodegree-feedreader.git`
+
+### Happy coding!
