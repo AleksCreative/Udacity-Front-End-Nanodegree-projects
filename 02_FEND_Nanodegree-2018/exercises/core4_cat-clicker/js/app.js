@@ -54,5 +54,11 @@ if (cat01.clicks === 1) {
   clickCounter[0].textContent = cat01.clicks + ' times';
 }
 
+if (cat02.clicks === 1) {
+  clickCounter[1].textContent = cat01.clicks + ' time';
+} else {
+  clickCounter[1].textContent = cat01.clicks + ' times';
+}
+
 clickCat();
 clickCat2();
