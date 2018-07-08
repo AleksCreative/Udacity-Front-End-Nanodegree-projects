@@ -22,8 +22,10 @@ $(function() {
          * page?
          */
         it('are defined', function() {
+
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
+
         });
 
 
@@ -32,10 +34,12 @@ $(function() {
          * and that the URL is not empty.
          */
          it('has URL defined and is not empty', function() {
+
            allFeeds.forEach(function(feed){
              expect(feed.url).toBeDefined();
              expect(feed.url).not.toBe(0);
            });
+
          });
 
         /* Test that loops through each feed
@@ -71,10 +75,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('changes visibility when clicked', function() {
+
             mIcon.trigger('click');
             expect(body.hasClass('menu-hidden')).toBe(false); // checks if menu opens when clicked
             mIcon.trigger('click');
             expect(body.hasClass('menu-hidden')).toBe(true); // checks if menu closes on second click
+
           });
 
 
@@ -83,7 +89,6 @@ $(function() {
     describe('Initial Entries', function() {
       // targeted DOM element assigned to a variable for use in the Meny suite
       const container = $('.feed');
-
         /* Test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
@@ -92,18 +97,19 @@ $(function() {
          */
          beforeEach(function(done) {
            loadFeed(0, done);
-        });
+         });
 
          it('is entry element in feed container', function() {
            expect(container.children().children().hasClass('entry')).toBe(true);
          });
+
     });
 
     /* Test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
+      //declare variables for first and second (updated) feed
       let currentFeed;
       let newFeed;
-
           /* Test that ensures when a new feed is loaded
           * by the loadFeed function that the content actually changes.
           * Remember, loadFeed() is asynchronous.
@@ -111,17 +117,19 @@ $(function() {
       beforeEach(function(done) {
 
         loadFeed(0, function() {
-          currentFeed = $('.feed').html();
+          currentFeed = $('.feed').html(); // loading first feed
           loadFeed(1, function() {
-            newFeed = $('.feed').html();
+            newFeed = $('.feed').html(); // loading new feed
             done();
           });
         });
+
       });
 
       it('content changes when new feeds loaded', function() {
-        expect(currentFeed).not.toBe(newFeed);
+        expect(currentFeed).not.toBe(newFeed); // checking if the feeds are different
       });
+      
     });
 
 }());
