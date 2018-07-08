@@ -6,22 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <!-- Skeleton 2.0.4 framework -> source: http://getskeleton.com/ -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
+
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
     <main class="container">
-      <section>
+      <header>
         <h1>Aleks' Cat clicker</h1>
         <p>Click on the cat's picture below</p>
-      </section>
-      <section id="cat-picture">
+      </header>
+      <div class="cat-picture section">
+        <h2 class="cat-name"></h2>
         <img src="img/cat.jpg" alt="black cat with yellow eyes, looking straight">
-      </section>
-      <section>
-        <p>You clicked the cat picture <span id="click-count"></span>. </p>
-      </section>
+        <p>You clicked the cat picture <span class="click-count"></span>. </p>
+      </div>
+      <div class="cat-picture section">
+        <h2 class="cat-name"></h2>
+        <img src="img/cat.jpg" alt="black cat with yellow eyes, looking straight">
+        <p>You clicked the cat picture <span class="click-count"></span>. </p>
+      </div>
+
+
+
     </main>
     <script src="js/app.js">
     </script>
