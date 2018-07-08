@@ -96,10 +96,12 @@ $(function() {
 
          it('is entry element in feed container', function() {
            expect(container.children().children().hasClass('entry')).toBe(true);
-         })
-    })
-    /* TODO: Write a new test suite named "New Feed Selection" */
+         });
+    });
+    /* Test suite named "New Feed Selection" */
+    describe("New Feed Selection", function() {
 
+    });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
