@@ -17,12 +17,12 @@ header, footer {
   justify-content: flex-start;
 }
 .section {
-  width: 50%;
+  width: 60%;
   padding: 15px;
 }
 
-.cat-picture img {
-  width: 80%;
+.list {
+  width: 30%;
 }
 
 .change-opacity {
