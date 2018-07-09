@@ -1,69 +1,119 @@
-const catPicture = document.getElementById('cat-picture');
-const clickCounter = document.getElementById('click-count');
-const catName = document.getElementsByClassName('cat-name');
-const catList = document.getElementById('cat-list');
+/* Model */
 
-function Cat(name, clicks, picture) {
-  this.name = name;
-  this.clicks = clicks;
-  this.picture = function(picture) {
-    catPicture.innerHTML = '<img src="img/"' + picture + '>'
-  };
-  this.changeOpacity = function() {
-    this.classList.toggle('change-opacity');
-    setTimeout(function() {
-      this.classList.toggle('change-opacity')
-    }, 500);
+const model = {
+
+  currentCat: {},
+
+  /*constructor: function Cat(name, picture, clicks) {
+    this.name = name;
+    this.picture = picture;
+    this.clicks = clicks;
+  },*/
+
+  cats: [
+    {name: 'Kiki',
+    picture: 'img/cat.jpg',
+    clicks: 0},
+
+    {name: 'Blacky',
+    picture: 'img/cat2.jpg',
+    clicks: 0},
+
+    {name: 'Swan',
+    picture: 'img/cat3.jpg',
+    clicks: 0},
+
+    {name: 'Freya',
+    picture:'img/cat4.jpg',
+    clicks: 0}
+    ]
+}
+
+/* Octopus */
+
+const octopus = {
+
+  init: function() {
+    model.currentCat = model.cats[0];
+
+    catView.init();
+    listView.init();
+  },
+
+  getCurrentCat: function() {
+    return model.currentCat;
+  },
+
+  getCats: function() {
+    return model.cats;
+  },
+
+  setCurrentCat: function(cat) {
+    model.currentCat = cat;
+  },
+
+  addClicks: function() {
+    model.currentCat.clicks++;
+    catView.render();
   }
-  this.updateClicks = function() {
-    for (let m = 0; m < this.clicks; m++) {
-      if (cat01.clicks === 1) {
-        clickCounter[0].textContent = this.clicks + ' time';
-      } else {
-        clickCounter[0].textContent = this.clicks + ' times';
+
+};
+
+/* Cat box view */
+
+const catView = {
+
+  init: function() {
+    this.catBox = document.getElementById('cat-box');
+    this.catName = document.getElementById('cat-name');
+    this.catPicture = document.getElementById('cat-picture');
+    this.clickCounter = document.getElementById('click-count');
+
+    this.catPicture.addEventListener('click', function() {
+      octopus.addClicks();
+    });
+
+    this.render();
+  },
+
+  render: function() {
+    let currentCat = octopus.getCurrentCat();
+    this.clickCounter.textContent = currentCat.clicks;
+    this.catName.textContent = currentCat.name;
+    this.catPicture.src = currentCat.picture;
+  }
+
+};
+
+/* Cat list view */
+
+const listView = {
+
+  init: function() {
+    this.catList = document.getElementById('cat-list');
+    this.render();
+  },
+
+  render: function() {
+
+      var cat, elem, i;
+      var cats = octopus.getCats();
+      this.catList.innerHTML = '';
+
+      for (i = 0; i < cats.length; i++) {
+          cat = cats[i];
+          elem = document.createElement('li');
+          elem.textContent = cat.name;
+          elem.addEventListener('click', (function(catCopy) {
+              return function() {
+                  octopus.setCurrentCat(catCopy);
+                  catView.render();
+              };
+          })(cat));
+          this.catList.appendChild(elem);
       }
-    }
-  }
-  this.catClick = function() {
-    catPicture.addEventListener('click', updateClicks);
-  }
-}
-
-
-let cat01 = new Cat('Kiki', 0, 'cat.jpg');
-let cat02 = new Cat('Pussy', 0);
-let cat03 = new Cat('Blacky', 0);
-let cat04 = new Cat('Boo', 0);
-let cat05 = new Cat('Slinki', 0);
-
-let catArray = [cat01, cat02, cat03, cat04, cat05];
-let listItem = ' ';
-let catSingle = catList.children;
-
-
-function makeList() {
-  for (let i = 0; i < catArray.length; i++) {
-  listItem = document.createElement('li');
-  catList.appendChild(listItem);
   }
 
-  let listItems = document.querySelectorAll('li')
-  for (let j = 0; j < catArray.length; j++) {
-    listItems[j].textContent = 'This is ' + catArray[j].name;
-  }
-}
-makeList();
+};
 
-function clickCat() {
-  catList.addEventListener('click', function(e) {
-    catSingle = e.target;
-    generateCat();
-  });
-}
-
-function generateCat() {
-  for (let k = 0; k < catArray.length; k++) {
-    catName.textContent = 'My name is ' + catArray[k].name;
-  }
-}
-clickCat();
+octopus.init();
