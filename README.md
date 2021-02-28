@@ -24,7 +24,7 @@
   - [code](https://github.com/AleksCreative/Udacity-Front-End-Nanodegree-projects/tree/master/02_FEND_Nanodegree-2018/Project04%20-%20Arcade%20Game%20clone)
    - [preview](https://alekscreative.github.io/Udacity-Front-End-Nanodegree-projects/02_FEND_Nanodegree-2018/Project04%20-%20Arcade%20Game%20clone/index.html)
 - [ ] **Project 5** - Feed Reader Testing
-  - code
+  - [code](https://github.com/AleksCreative/Udacity-Front-End-Nanodegree-projects/tree/master/02_FEND_Nanodegree-2018/Project05%20-%20Feed%20reader/frontend-nanodegree-feedreader)
   - preview  
 ###### Front-End Applications  
 - [ ] **Project 6** - Restaurant Reviews App - Stage 1
